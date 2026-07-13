@@ -14,8 +14,8 @@ export default function TermsPage() {
         title="Terms & Conditions"
         subtitle="Please read these terms carefully before using our website and services."
       />
-      <section className="container-x py-16">
-        <div className="mx-auto max-w-3xl space-y-8 text-steel-300">
+      <section className="bg-surface py-stack-lg">
+        <div className="container-x mx-auto max-w-3xl space-y-8 text-muted">
           <Block title="Use of this website">
             The content on this website is provided for general information about
             Shah Industrial Corporation and its solutions. While we strive for
@@ -38,7 +38,7 @@ export default function TermsPage() {
           </Block>
           <Block title="Contact">
             Questions about these terms can be directed to{" "}
-            <a href={`mailto:${company.email}`} className="text-brand-300 underline">
+            <a href={`mailto:${company.email}`} className="text-brand underline">
               {company.email}
             </a>
             .
@@ -52,7 +52,9 @@ export default function TermsPage() {
 function Block({ title, children }) {
   return (
     <div>
-      <h2 className="font-display text-xl font-semibold text-white">{title}</h2>
+      <h2 className="font-display text-headline-md font-semibold text-primary">
+        {title}
+      </h2>
       <p className="mt-3 leading-relaxed">{children}</p>
     </div>
   );

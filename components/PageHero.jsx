@@ -1,15 +1,15 @@
 export default function PageHero({ eyebrow, title, subtitle }) {
   return (
-    <section className="relative overflow-hidden border-b border-white/10">
-      <div className="absolute inset-0 grid-pattern radial-fade opacity-70" />
-      <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-500/20 blur-[120px]" />
-      <div className="container-x relative py-20 sm:py-24">
-        {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-        <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight tracking-tight text-white text-balance sm:text-5xl">
+    <section className="relative overflow-hidden border-b border-outline bg-cad">
+      <div className="absolute inset-0 blueprint-pattern opacity-40" />
+      <div className="absolute -left-4 top-8 h-24 w-24 border-l-2 border-t-2 border-brand opacity-30" />
+      <div className="container-x relative py-stack-lg">
+        {eyebrow && <span className="eyebrow mb-stack-sm block">{eyebrow}</span>}
+        <h1 className="max-w-3xl font-display text-[32px] font-bold leading-tight tracking-tight text-primary text-balance sm:text-display-lg">
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-steel-300">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
             {subtitle}
           </p>
         )}

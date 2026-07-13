@@ -8,42 +8,56 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#080c16",
-        surface: "#0e1420",
-        panel: "#131b2b",
-        brand: {
-          50: "#fff8eb",
-          100: "#ffedc7",
-          200: "#ffd98a",
-          300: "#ffc14d",
-          400: "#ffab24",
-          500: "#f59e0b",
-          600: "#d97706",
-          700: "#b45309",
-          800: "#92400e",
-          900: "#78350f",
-        },
-        steel: {
-          100: "#e2e8f0",
-          200: "#cbd5e1",
-          300: "#94a3b8",
-          400: "#64748b",
-          500: "#475569",
-          600: "#334155",
-          700: "#1e293b",
-          800: "#0f172a",
-        },
+        // Forge & Precision palette
+        background: "#faf8ff",
+        surface: "#faf8ff",
+        cad: "#F8FAFC",
+        obsidian: "#12141D",
+        primary: "#003874", // deep industrial blue (headlines)
+        brand: "#1A4F95", // industrial blue (buttons/actions)
+        accent: "#FF8F27", // safety orange (CTA / focal)
+        copper: "#B87333",
+        ink: "#171b2a", // on-surface / on-background
+        muted: "#424751", // on-surface-variant
+        outline: "#c3c6d2", // outline-variant
+        svariant: "#dee1f7", // surface-variant (light lavender)
+        steel: "#4A5568",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+      },
+      fontSize: {
+        "label-caps": ["12px", { lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "600" }],
+        "mono-data": ["14px", { lineHeight: "1.4", fontWeight: "500" }],
+        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+        "headline-lg": ["32px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+      },
+      borderRadius: {
+        none: "0",
+        sm: "0.125rem",
+        DEFAULT: "0.125rem", // machined, sharp — 2px
+        md: "0.25rem",
+        lg: "0.25rem",
+        xl: "0.5rem", // card container softness
+        full: "9999px",
       },
       maxWidth: {
-        container: "1200px",
+        container: "1280px",
+      },
+      spacing: {
+        "stack-sm": "12px",
+        "stack-md": "32px",
+        "stack-lg": "80px",
+        gutter: "24px",
+        "margin-mobile": "16px",
+        "margin-desktop": "40px",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "0%": { opacity: "0", transform: "translateY(24px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },

@@ -3,67 +3,84 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    color-scheme: dark;
-  }
-
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-ink text-steel-200 font-sans antialiased;
+    @apply bg-background text-ink font-sans antialiased;
   }
 
   ::selection {
-    @apply bg-brand-500/30 text-white;
+    @apply bg-accent text-white;
   }
 }
 
 @layer components {
   .container-x {
-    @apply mx-auto w-full max-w-container px-5 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-container px-margin-mobile sm:px-6 lg:px-10;
   }
 
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/60;
-  }
-
-  .btn-primary {
-    @apply btn bg-brand-500 text-ink hover:bg-brand-400 hover:shadow-[0_10px_40px_-10px_rgba(245,158,11,0.6)];
-  }
-
-  .btn-ghost {
-    @apply btn border border-white/15 text-white hover:border-brand-400/60 hover:text-brand-300;
-  }
-
+  /* Eyebrow / label-caps used above section headings */
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand-400;
+    @apply inline-block text-label-caps font-semibold uppercase tracking-[0.1em] text-accent;
   }
 
+  /* Buttons — sharp 2px radius, high contrast */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded px-6 py-3 text-base font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50;
+  }
+
+  /* Primary action = industrial blue */
+  .btn-primary {
+    @apply btn bg-brand text-white hover:bg-primary hover:shadow-lg;
+  }
+
+  /* CTA = safety orange */
+  .btn-cta {
+    @apply btn bg-accent text-white hover:brightness-95 hover:shadow-lg;
+  }
+
+  /* Outline = industrial blue stroke */
+  .btn-outline {
+    @apply btn border-2 border-brand bg-transparent text-brand hover:bg-brand hover:text-white;
+  }
+
+  .btn-ghost-dark {
+    @apply btn border border-white/30 bg-transparent text-white backdrop-blur-sm hover:bg-white/10;
+  }
+
+  /* Card — white with 1px outline, no shadow */
   .card {
-    @apply rounded-2xl border border-white/10 bg-panel/60 p-6 transition-all duration-300 hover:border-brand-400/40 hover:bg-panel;
-  }
-
-  .gradient-text {
-    @apply bg-gradient-to-r from-brand-300 via-brand-400 to-brand-200 bg-clip-text text-transparent;
+    @apply rounded-xl border border-outline bg-white p-8 transition-all duration-300 hover:border-brand;
   }
 }
 
 @layer utilities {
-  .grid-pattern {
-    background-image:
-      linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
+  /* Blueprint dot grid overlay */
+  .blueprint-pattern {
+    background-image: radial-gradient(rgba(26, 79, 149, 0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
-  .radial-fade {
-    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, #000 40%, transparent 100%);
-    mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, #000 40%, transparent 100%);
+  .blueprint-pattern-dark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .zebra-list li:nth-child(even) {
+    @apply bg-cad;
   }
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Material Symbols base */
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
   }
 }

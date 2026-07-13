@@ -1,6 +1,6 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import Icon from "@/components/Icon";
+import MSym from "@/components/MSym";
 import { company, values, leadership, partners, stats } from "@/lib/site";
 
 export const metadata = {
@@ -19,14 +19,14 @@ export default function AboutPage() {
       />
 
       {/* Story */}
-      <section className="container-x py-20">
-        <div className="grid gap-12 lg:grid-cols-12">
+      <section className="bg-surface py-stack-lg">
+        <div className="container-x grid grid-cols-1 gap-stack-lg lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <span className="eyebrow">Our Story</span>
-            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white">
+            <span className="eyebrow mb-stack-sm block">Our Story</span>
+            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary">
               A trusted name in Indian heavy industry
             </h2>
-            <div className="mt-6 space-y-4 text-steel-300">
+            <div className="mt-6 space-y-4 leading-relaxed text-muted">
               <p>
                 Established over 30 years ago in Chhattisgarh by the Shah
                 Brothers, Shah Industrial Corporation (SIC) began by supplying
@@ -50,16 +50,13 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-gutter">
               {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl border border-white/10 bg-panel/50 p-6"
-                >
-                  <div className="font-display text-3xl font-bold text-brand-400">
+                <div key={s.label} className="border-l-4 border-brand bg-cad p-6">
+                  <div className="font-display text-display-lg font-bold text-brand">
                     {s.value}
                   </div>
-                  <div className="mt-1 text-sm text-steel-400">{s.label}</div>
+                  <div className="mt-1 text-muted">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -68,29 +65,29 @@ export default function AboutPage() {
       </section>
 
       {/* Vision / Mission */}
-      <section className="border-y border-white/10 bg-surface/40">
-        <div className="container-x grid gap-6 py-16 md:grid-cols-2">
-          <div className="rounded-3xl border border-white/10 bg-panel/60 p-8">
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/15 text-brand-300">
-              <Icon name="spark" className="h-6 w-6" />
+      <section className="border-y border-outline bg-cad">
+        <div className="container-x grid grid-cols-1 gap-gutter py-stack-lg md:grid-cols-2">
+          <div className="rounded-xl border border-outline bg-white p-8">
+            <span className="flex h-12 w-12 items-center justify-center rounded bg-accent/10 text-accent">
+              <MSym name="visibility" />
             </span>
-            <h3 className="mt-5 font-display text-xl font-semibold text-white">
+            <h3 className="mt-5 font-display text-headline-md font-semibold text-primary">
               Our Vision
             </h3>
-            <p className="mt-3 leading-relaxed text-steel-300">
+            <p className="mt-3 leading-relaxed text-muted">
               To be India&apos;s most trusted partner for mission-critical
               industrial solutions that enhance plant reliability, safety, and
               efficiency.
             </p>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-panel/60 p-8">
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/15 text-brand-300">
-              <Icon name="gauge" className="h-6 w-6" />
+          <div className="rounded-xl border border-outline bg-white p-8">
+            <span className="flex h-12 w-12 items-center justify-center rounded bg-accent/10 text-accent">
+              <MSym name="flag" />
             </span>
-            <h3 className="mt-5 font-display text-xl font-semibold text-white">
+            <h3 className="mt-5 font-display text-headline-md font-semibold text-primary">
               Our Mission
             </h3>
-            <p className="mt-3 leading-relaxed text-steel-300">
+            <p className="mt-3 leading-relaxed text-muted">
               To deliver high-performance products and lifecycle support that
               reduce downtime and total cost of ownership for every plant we
               serve.
@@ -100,49 +97,46 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="container-x py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Core Values</span>
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            What we stand for
-          </h2>
-        </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {values.map((v) => (
-            <div key={v.title} className="card">
-              <h3 className="font-display text-lg font-semibold text-white">
-                {v.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-steel-400">
-                {v.text}
-              </p>
-            </div>
-          ))}
+      <section className="bg-surface py-stack-lg">
+        <div className="container-x">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="eyebrow mb-stack-sm block">Core Values</span>
+            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
+              What we stand for
+            </h2>
+          </div>
+          <div className="mt-stack-lg grid grid-cols-1 gap-gutter sm:grid-cols-2 lg:grid-cols-3">
+            {values.map((v) => (
+              <div key={v.title} className="card">
+                <h3 className="font-display text-headline-md font-semibold text-primary">
+                  {v.title}
+                </h3>
+                <p className="mt-2 leading-relaxed text-muted">{v.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Leadership */}
-      <section className="border-t border-white/10 bg-surface/40">
-        <div className="container-x py-20">
+      <section className="border-t border-outline bg-cad py-stack-lg">
+        <div className="container-x">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow">Leadership</span>
-            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <span className="eyebrow mb-stack-sm block">Leadership</span>
+            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
               The people behind SIC
             </h2>
           </div>
-          <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
+          <div className="mx-auto mt-stack-lg grid max-w-4xl grid-cols-1 gap-gutter sm:grid-cols-3">
             {leadership.map((l) => (
-              <div
-                key={l.name}
-                className="rounded-2xl border border-white/10 bg-panel/50 p-8 text-center"
-              >
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-brand-600 font-display text-2xl font-bold text-ink">
+              <div key={l.name} className="rounded-xl border border-outline bg-white p-8 text-center">
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand font-display text-2xl font-bold text-white">
                   {l.name.split(" ").map((n) => n[0]).join("")}
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-white">
+                <h3 className="mt-5 font-display text-headline-md font-semibold text-primary">
                   {l.name}
                 </h3>
-                <p className="mt-1 text-sm text-brand-400">{l.role}</p>
+                <p className="mt-1 text-mono-data font-medium text-accent">{l.role}</p>
               </div>
             ))}
           </div>
@@ -150,32 +144,34 @@ export default function AboutPage() {
       </section>
 
       {/* Partners */}
-      <section className="container-x py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Trusted OEM Partners</span>
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            We represent the best in the business
-          </h2>
-          <p className="mt-4 text-steel-300">
-            Our strategic partnerships with leading global OEMs let us deliver
-            proven, warranty-backed technology to your plant.
-          </p>
-        </div>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          {partners.map((p) => (
-            <span
-              key={p}
-              className="rounded-full border border-white/10 bg-panel/50 px-6 py-3 font-display text-sm font-semibold text-steel-200"
-            >
-              {p}
-            </span>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
-          <Link href="/contact" className="btn-primary">
-            Partner with us
-            <Icon name="arrow" className="h-4 w-4" />
-          </Link>
+      <section className="bg-surface py-stack-lg">
+        <div className="container-x">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="eyebrow mb-stack-sm block">Trusted OEM Partners</span>
+            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
+              We represent the best in the business
+            </h2>
+            <p className="mt-4 text-muted">
+              Our strategic partnerships with leading global OEMs let us deliver
+              proven, warranty-backed technology to your plant.
+            </p>
+          </div>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            {partners.map((p) => (
+              <span
+                key={p}
+                className="rounded border border-outline bg-cad px-6 py-3 font-display font-semibold text-primary"
+              >
+                {p}
+              </span>
+            ))}
+          </div>
+          <div className="mt-stack-md text-center">
+            <Link href="/contact" className="btn-cta">
+              Partner With Us
+              <MSym name="arrow_forward" />
+            </Link>
+          </div>
         </div>
       </section>
     </>

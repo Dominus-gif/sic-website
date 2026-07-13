@@ -14,8 +14,8 @@ export default function PrivacyPage() {
         title="Privacy Policy"
         subtitle="Your privacy matters to us. This policy explains what information we collect and how we use it."
       />
-      <section className="container-x py-16">
-        <div className="prose-invert mx-auto max-w-3xl space-y-8 text-steel-300">
+      <section className="bg-surface py-stack-lg">
+        <div className="container-x mx-auto max-w-3xl space-y-8 text-muted">
           <Block title="Information we collect">
             When you contact us through our website, phone, or email, we may
             collect your name, company, email address, phone number, and the
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
           </Block>
           <Block title="Contact">
             For any questions about this policy or your data, contact us at{" "}
-            <a href={`mailto:${company.email}`} className="text-brand-300 underline">
+            <a href={`mailto:${company.email}`} className="text-brand underline">
               {company.email}
             </a>
             .
@@ -53,7 +53,9 @@ export default function PrivacyPage() {
 function Block({ title, children }) {
   return (
     <div>
-      <h2 className="font-display text-xl font-semibold text-white">{title}</h2>
+      <h2 className="font-display text-headline-md font-semibold text-primary">
+        {title}
+      </h2>
       <p className="mt-3 leading-relaxed">{children}</p>
     </div>
   );
