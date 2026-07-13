@@ -1,6 +1,7 @@
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import MSym from "@/components/MSym";
+import { Reveal } from "@/components/Motion";
 import { company } from "@/lib/site";
 
 export const metadata = {
@@ -21,7 +22,7 @@ export default function ContactPage() {
       <section className="bg-surface py-stack-lg">
         <div className="container-x grid grid-cols-1 gap-stack-lg lg:grid-cols-5">
           {/* Info */}
-          <div className="space-y-stack-md lg:col-span-2">
+          <Reveal className="space-y-stack-md lg:col-span-2">
             <span className="eyebrow">Reach us directly</span>
             <h2 className="font-display text-headline-lg font-bold text-primary">
               We&apos;re here to help
@@ -53,10 +54,10 @@ export default function ContactPage() {
                 Monday – Saturday, 10:00 AM – 7:00 PM IST
               </InfoCard>
             </div>
-          </div>
+          </Reveal>
 
           {/* Form */}
-          <div className="lg:col-span-3">
+          <Reveal delay={0.1} className="lg:col-span-3">
             <div className="rounded-xl border border-outline bg-white p-8 shadow-sm sm:p-10">
               <h2 className="font-display text-headline-md font-bold text-primary">
                 Send us an enquiry
@@ -69,7 +70,7 @@ export default function ContactPage() {
                 <ContactForm />
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 

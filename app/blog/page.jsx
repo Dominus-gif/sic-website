@@ -1,5 +1,6 @@
 import PageHero from "@/components/PageHero";
 import MSym from "@/components/MSym";
+import { Reveal, Stagger, Item } from "@/components/Motion";
 import { posts } from "@/lib/site";
 
 export const metadata = {
@@ -30,7 +31,7 @@ export default function BlogPage() {
       <section className="bg-surface py-stack-lg">
         <div className="container-x">
           {/* Featured */}
-          <article className="group relative overflow-hidden rounded-xl border border-outline bg-white p-8 transition-all hover:border-brand lg:p-12">
+          <Reveal as="article" className="group relative overflow-hidden rounded-xl border border-outline bg-white p-8 transition-all hover:border-brand lg:p-12">
             <div className="absolute left-0 top-0 h-1 w-full bg-accent" />
             <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-3 text-mono-data">
@@ -54,37 +55,36 @@ export default function BlogPage() {
                 <MSym name="arrow_forward" className="transition-transform group-hover:translate-x-1" />
               </span>
             </div>
-          </article>
+          </Reveal>
 
           {/* Grid */}
-          <div className="mt-gutter grid grid-cols-1 gap-gutter md:grid-cols-3">
+          <Stagger className="mt-gutter grid grid-cols-1 gap-gutter md:grid-cols-3" stagger={0.08}>
             {rest.map((post) => (
-              <article
-                key={post.slug}
-                className="group flex flex-col rounded-xl border border-outline bg-white p-7 transition-all hover:border-brand"
-              >
-                <span className="w-fit rounded bg-cad px-3 py-1 text-mono-data font-medium text-muted">
-                  {post.category}
-                </span>
-                <h3 className="mt-4 font-display text-headline-md font-semibold leading-snug text-primary">
-                  {post.title}
-                </h3>
-                <p className="mt-3 flex-1 leading-relaxed text-muted">
-                  {post.excerpt}
-                </p>
-                <div className="mt-5 flex items-center justify-between border-t border-outline pt-4 text-mono-data text-steel">
-                  <span>{formatDate(post.date)}</span>
-                  <span className="inline-flex items-center gap-1">
-                    <MSym name="schedule" className="text-base" />
-                    {post.readTime}
+              <Item key={post.slug}>
+                <article className="group flex h-full flex-col rounded-xl border border-outline bg-white p-7 transition-all hover:border-brand hover:shadow-sm">
+                  <span className="w-fit rounded bg-cad px-3 py-1 text-mono-data font-medium text-muted">
+                    {post.category}
                   </span>
-                </div>
-              </article>
+                  <h3 className="mt-4 font-display text-headline-md font-semibold leading-snug text-primary">
+                    {post.title}
+                  </h3>
+                  <p className="mt-3 flex-1 leading-relaxed text-muted">
+                    {post.excerpt}
+                  </p>
+                  <div className="mt-5 flex items-center justify-between border-t border-outline pt-4 text-mono-data text-steel">
+                    <span>{formatDate(post.date)}</span>
+                    <span className="inline-flex items-center gap-1">
+                      <MSym name="schedule" className="text-base" />
+                      {post.readTime}
+                    </span>
+                  </div>
+                </article>
+              </Item>
             ))}
-          </div>
+          </Stagger>
 
           {/* Newsletter */}
-          <div className="mt-stack-lg rounded-xl border border-outline bg-cad p-8 text-center sm:p-12">
+          <Reveal className="mt-stack-lg rounded-xl border border-outline bg-cad p-8 text-center sm:p-12">
             <h2 className="font-display text-headline-lg font-bold text-primary">
               Get plant-reliability insights in your inbox
             </h2>
@@ -103,7 +103,7 @@ export default function BlogPage() {
                 Subscribe
               </button>
             </form>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>
