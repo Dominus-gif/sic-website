@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import SectionHeading from "@/components/SectionHeading";
+import DownloadProfile from "@/components/DownloadProfile";
 import MSym from "@/components/MSym";
 import { Reveal, Stagger, Item } from "@/components/Motion";
 import { company, values, leadership, partnerLogos, stats } from "@/lib/site";
@@ -91,16 +93,11 @@ export default function AboutPage() {
       {/* On the ground gallery */}
       <section className="bg-surface py-stack-lg">
         <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow mb-stack-sm block">On The Ground</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
-              Real teams, real installations
-            </h2>
-            <p className="mt-4 text-muted">
-              From award ceremonies with our OEM partners to on-site
-              commissioning, our people are where the work happens.
-            </p>
-          </Reveal>
+          <SectionHeading
+            eyebrow="On The Ground"
+            title="Real teams, real installations"
+            subtitle="From award ceremonies with our OEM partners to on-site commissioning, our people are where the work happens."
+          />
           <Stagger className="mt-stack-lg grid grid-cols-2 gap-gutter lg:grid-cols-4" stagger={0.08}>
             {gallery.map((g) => (
               <Item key={g.src}>
@@ -159,12 +156,11 @@ export default function AboutPage() {
       {/* Values */}
       <section className="bg-surface py-stack-lg">
         <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow mb-stack-sm block">Core Values</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
-              What we stand for
-            </h2>
-          </Reveal>
+          <SectionHeading
+            eyebrow="Core Values"
+            title="What we stand for"
+            subtitle="The principles that shape every product we supply and every service we deliver."
+          />
           <Stagger className="mt-stack-lg grid grid-cols-1 gap-gutter sm:grid-cols-2 lg:grid-cols-3" stagger={0.09}>
             {values.map((v) => (
               <Item key={v.title} hover>
@@ -187,12 +183,11 @@ export default function AboutPage() {
       {/* Leadership */}
       <section className="border-t border-outline bg-cad py-stack-lg">
         <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow mb-stack-sm block">Leadership</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
-              The people behind SIC
-            </h2>
-          </Reveal>
+          <SectionHeading
+            eyebrow="Leadership"
+            title="The people behind SIC"
+            subtitle="Experienced founders and engineers driving reliability across India's heavy industry."
+          />
           <Stagger className="mx-auto mt-stack-lg grid max-w-4xl grid-cols-1 gap-gutter sm:grid-cols-3" stagger={0.1}>
             {leadership.map((l) => (
               <Item key={l.name}>
@@ -214,16 +209,11 @@ export default function AboutPage() {
       {/* Partners */}
       <section className="bg-surface py-stack-lg">
         <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow mb-stack-sm block">Trusted OEM Partners</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
-              We represent the best in the business
-            </h2>
-            <p className="mt-4 text-muted">
-              Our strategic partnerships with leading global OEMs let us deliver
-              proven, warranty-backed technology to your plant.
-            </p>
-          </Reveal>
+          <SectionHeading
+            eyebrow="Trusted OEM Partners"
+            title="We represent the best in the business"
+            subtitle="Our strategic partnerships with leading global OEMs let us deliver proven, warranty-backed technology to your plant."
+          />
           <Stagger className="mt-10 flex flex-wrap items-center justify-center gap-4" stagger={0.07}>
             {partnerLogos.map((p) => (
               <Item key={p.name}>
@@ -239,11 +229,12 @@ export default function AboutPage() {
               </Item>
             ))}
           </Stagger>
-          <Reveal className="mt-stack-md text-center" delay={0.1}>
+          <Reveal className="mt-stack-md flex flex-wrap justify-center gap-3" delay={0.1}>
             <Link href="/contact" className="btn-cta">
               Partner With Us
               <MSym name="arrow_forward" />
             </Link>
+            <DownloadProfile variant="outline" />
           </Reveal>
         </div>
       </section>

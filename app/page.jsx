@@ -2,8 +2,18 @@ import Link from "next/link";
 import Image from "next/image";
 import MSym from "@/components/MSym";
 import ContactForm from "@/components/ContactForm";
+import SectionHeading from "@/components/SectionHeading";
+import DownloadProfile from "@/components/DownloadProfile";
+import Counter from "@/components/Counter";
 import { Reveal, Stagger, Item } from "@/components/Motion";
-import { company, services, industries, partnerLogos } from "@/lib/site";
+import {
+  company,
+  services,
+  industries,
+  partnerLogos,
+  customers,
+  stats,
+} from "@/lib/site";
 
 const bento = services.slice(0, 5);
 
@@ -59,7 +69,7 @@ export default function HomePage() {
               </p>
             </Item>
             <Item>
-              <div className="flex flex-wrap gap-gutter pt-2">
+              <div className="flex flex-wrap gap-3 pt-2">
                 <Link href="/contact" className="btn-cta group">
                   Request a Consultation
                   <MSym name="arrow_forward" className="transition-transform group-hover:translate-x-1" />
@@ -67,6 +77,7 @@ export default function HomePage() {
                 <Link href="/products" className="btn-ghost-dark">
                   Explore Solutions
                 </Link>
+                <DownloadProfile variant="dark" label="Company Profile" />
               </div>
             </Item>
             <Item>
@@ -79,6 +90,24 @@ export default function HomePage() {
           </Stagger>
         </div>
       </header>
+
+      {/* ===================== STATS BAND ===================== */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-brand to-primary">
+        <div className="pointer-events-none absolute inset-0 blueprint-pattern-dark opacity-20" />
+        <Stagger className="container-x relative grid grid-cols-2 gap-8 py-12 lg:grid-cols-4" stagger={0.12}>
+          {stats.map((s) => (
+            <Item key={s.label} className="text-center lg:text-left">
+              <Counter
+                value={s.value}
+                className="font-display text-4xl font-bold text-white sm:text-5xl"
+              />
+              <div className="mt-2 text-sm font-medium uppercase tracking-[0.08em] text-white/70">
+                {s.label}
+              </div>
+            </Item>
+          ))}
+        </Stagger>
+      </section>
 
       {/* ===================== ABOUT ===================== */}
       <section className="bg-surface py-stack-lg">
@@ -136,9 +165,12 @@ export default function HomePage() {
               footprint across multiple states and pioneering new opportunities
               for growth.
             </p>
-            <Link href="/about" className="btn-outline">
-              Learn More About Our Journey
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/about" className="btn-outline">
+                Learn More About Our Journey
+              </Link>
+              <DownloadProfile variant="primary" />
+            </div>
           </Reveal>
         </div>
       </section>
@@ -146,12 +178,12 @@ export default function HomePage() {
       {/* ===================== SERVICES BENTO ===================== */}
       <section id="solutions" className="bg-cad py-stack-lg">
         <div className="container-x">
-          <Reveal className="mb-stack-lg text-center">
-            <span className="eyebrow mb-stack-sm block">Our Solutions</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
-              ONE STOP SOLUTION FOR INDUSTRY
-            </h2>
-          </Reveal>
+          <SectionHeading
+            className="mb-stack-lg"
+            eyebrow="Our Solutions"
+            title="One-stop solution for industry"
+            subtitle="Nine integrated verticals, engineered, supplied, installed and supported by one accountable partner."
+          />
 
           <Stagger className="grid grid-cols-1 gap-gutter md:grid-cols-3" stagger={0.09}>
             {/* Card 1 — large feature with photo */}
@@ -227,16 +259,12 @@ export default function HomePage() {
       <section id="industries" className="relative overflow-hidden bg-surface py-stack-lg">
         <div className="pointer-events-none absolute inset-0 blueprint-pattern opacity-20 [mask-image:radial-gradient(ellipse_70%_60%_at_100%_0%,#000,transparent_70%)]" />
         <div className="container-x relative z-10">
-          <Reveal className="mx-auto mb-stack-lg max-w-2xl text-center">
-            <span className="eyebrow mb-stack-sm block">Industries Served</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
-              Powering India&apos;s Core Industrial Infrastructure
-            </h2>
-            <p className="mt-4 text-muted">
-              For three decades we have kept the plants that keep the country
-              running — where reliability is never optional.
-            </p>
-          </Reveal>
+          <SectionHeading
+            className="mb-stack-lg"
+            eyebrow="Industries Served"
+            title="Powering India's core industrial infrastructure"
+            subtitle="For three decades we have kept the plants that keep the country running — where reliability is never optional."
+          />
 
           <Stagger className="grid grid-cols-1 gap-gutter sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
             {industries.map((ind, i) => (
@@ -293,6 +321,35 @@ export default function HomePage() {
               </Item>
             ))}
           </Stagger>
+        </div>
+      </section>
+
+      {/* ===================== CUSTOMERS ===================== */}
+      <section className="bg-surface py-stack-lg">
+        <div className="container-x">
+          <SectionHeading
+            className="mb-stack-lg"
+            eyebrow="Trusted By"
+            title="Serving India's leading industrial groups"
+            subtitle="Our products and services keep mission-critical plants running across the mining, steel, cement and power sectors."
+          />
+          <Stagger
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+            stagger={0.06}
+          >
+            {customers.map((name) => (
+              <Item key={name} hover>
+                <div className="group flex h-24 items-center justify-center rounded-xl border border-outline bg-cad px-4 text-center transition-all hover:border-brand hover:bg-white hover:shadow-[0_20px_40px_-24px_rgba(26,79,149,0.4)]">
+                  <span className="font-display text-lg font-bold text-steel transition-colors group-hover:text-primary">
+                    {name}
+                  </span>
+                </div>
+              </Item>
+            ))}
+          </Stagger>
+          <Reveal className="mt-8 text-center text-sm text-muted" as="p">
+            …and many more plants across India.
+          </Reveal>
         </div>
       </section>
 

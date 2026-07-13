@@ -1,48 +1,57 @@
 import Link from "next/link";
+import Image from "next/image";
 import MSym from "@/components/MSym";
-import { company, services } from "@/lib/site";
+import WhatsappIcon from "@/components/WhatsappIcon";
+import DownloadProfile from "@/components/DownloadProfile";
+import { company, services, nav } from "@/lib/site";
+
+const waHref = `https://wa.me/${company.phones[0].replace(/[^\d]/g, "")}`;
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-obsidian text-white">
-      <div className="container-x grid grid-cols-1 gap-gutter py-stack-lg md:grid-cols-4">
+    <footer className="relative bg-obsidian text-white">
+      <div className="h-1 w-full bg-gradient-to-r from-brand via-accent to-brand" />
+
+      <div className="container-x grid grid-cols-1 gap-10 py-stack-lg md:grid-cols-12">
         {/* Brand */}
-        <div className="space-y-stack-sm">
-          <div className="font-display text-headline-md font-bold text-white">
-            SIC
-          </div>
-          <p className="max-w-xs text-white/70">
-            {company.name}. Engineering Excellence Since 1985.
+        <div className="space-y-5 md:col-span-5">
+          <Image
+            src="/brand/sic-logo.png"
+            alt="Shah Industrial Corporation"
+            width={64}
+            height={60}
+            className="h-14 w-auto rounded bg-white/95 p-1.5"
+          />
+          <p className="max-w-sm leading-relaxed text-white/70">
+            {company.motto}. A trusted pan-India partner delivering integrated
+            industrial solutions for mission-critical operations since 1985.
           </p>
-          <div className="flex gap-4 pt-2">
-            <a
-              href={`mailto:${company.email}`}
-              className="flex h-10 w-10 items-center justify-center rounded border border-white/20 transition-colors hover:bg-accent"
-              aria-label="Email us"
-            >
-              <MSym name="share" />
-            </a>
-          </div>
+          <DownloadProfile variant="dark" />
         </div>
 
-        {/* Solutions */}
-        <div className="space-y-stack-sm">
+        {/* Explore */}
+        <div className="space-y-4 md:col-span-3">
           <p className="text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
-            Solutions
+            Explore
           </p>
           <ul className="space-y-2.5 text-white/70">
-            {services.slice(0, 5).map((s) => (
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="transition-colors hover:text-accent">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="pt-2 text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
+            Solutions
+          </p>
+          <ul className="space-y-2 text-sm text-white/60">
+            {services.slice(0, 4).map((s) => (
               <li key={s.slug}>
-                <Link
-                  href="/products"
-                  className="group flex items-center gap-2.5 transition-colors hover:text-accent"
-                >
-                  <MSym
-                    name={s.sym}
-                    className="text-lg text-white/40 transition-colors group-hover:text-accent"
-                  />
+                <Link href="/products" className="transition-colors hover:text-accent">
                   {s.short}
                 </Link>
               </li>
@@ -50,66 +59,47 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Resources */}
-        <div className="space-y-stack-sm">
-          <p className="text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
-            Resources
-          </p>
-          <ul className="space-y-2.5 text-white/70">
-            <li>
-              <Link href="/about" className="group flex items-center gap-2.5 transition-colors hover:text-accent">
-                <MSym name="business" className="text-lg text-white/40 transition-colors group-hover:text-accent" />
-                Company Profile
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="group flex items-center gap-2.5 transition-colors hover:text-accent">
-                <MSym name="precision_manufacturing" className="text-lg text-white/40 transition-colors group-hover:text-accent" />
-                Our Solutions
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="group flex items-center gap-2.5 transition-colors hover:text-accent">
-                <MSym name="health_and_safety" className="text-lg text-white/40 transition-colors group-hover:text-accent" />
-                Safety Protocols
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" className="group flex items-center gap-2.5 transition-colors hover:text-accent">
-                <MSym name="verified" className="text-lg text-white/40 transition-colors group-hover:text-accent" />
-                ISO Certificates
-              </Link>
-            </li>
-          </ul>
-        </div>
-
         {/* Contact */}
-        <div className="space-y-stack-sm">
+        <div className="space-y-4 md:col-span-4">
           <p className="text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
-            Contact Info
+            Get in Touch
           </p>
-          <p className="text-white/70">
-            Arihant Complex, Ground Floor,
-            <br />
-            Station Road, Raipur (C.G.)
-          </p>
-          <div className="space-y-1 font-mono text-mono-data text-white/80">
-            {company.phones.map((p) => (
-              <a
-                key={p}
-                href={`tel:${p.replace(/[^+\d]/g, "")}`}
-                className="block transition-colors hover:text-accent"
-              >
-                {p}
-              </a>
-            ))}
+          <div className="flex items-start gap-3 text-white/70">
+            <MSym name="location_on" className="mt-0.5 shrink-0 text-accent" />
+            <span>{company.address}</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <MSym name="call" className="mt-0.5 shrink-0 text-accent" />
+            <div className="space-y-1 font-mono text-mono-data text-white/80">
+              {company.phones.map((p) => (
+                <a
+                  key={p}
+                  href={`tel:${p.replace(/[^+\d]/g, "")}`}
+                  className="block transition-colors hover:text-accent"
+                >
+                  {p}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <MSym name="mail" className="mt-0.5 shrink-0 text-accent" />
             <a
               href={`mailto:${company.email}`}
-              className="block break-all transition-colors hover:text-accent"
+              className="break-all text-white/80 transition-colors hover:text-accent"
             >
               {company.email}
             </a>
           </div>
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-95"
+          >
+            <WhatsappIcon className="h-5 w-5" />
+            Message us on WhatsApp
+          </a>
         </div>
       </div>
 

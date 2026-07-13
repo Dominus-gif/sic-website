@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import MSym from "@/components/MSym";
+import SectionHeading from "@/components/SectionHeading";
+import DownloadProfile from "@/components/DownloadProfile";
 import { Reveal, Stagger, Item } from "@/components/Motion";
 import { services, elecon, oemPartners } from "@/lib/site";
 
@@ -74,16 +76,11 @@ export default function ProductsPage() {
       {/* ===================== OEM PARTNERS ===================== */}
       <section id="oem-partners" className="border-y border-outline bg-cad py-stack-lg">
         <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="eyebrow mb-stack-sm block">OEM Partners</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
-              World-class technology, delivered in India
-            </h2>
-            <p className="mt-4 text-muted">
-              We represent leading global OEMs — backed by genuine spares,
-              warranties, and on-site engineering support.
-            </p>
-          </Reveal>
+          <SectionHeading
+            eyebrow="OEM Partners"
+            title="World-class technology, delivered in India"
+            subtitle="We represent leading global OEMs — backed by genuine spares, warranties, and on-site engineering support."
+          />
 
           {/* Featured: Elecon */}
           <Reveal className="mt-stack-lg overflow-hidden rounded-xl border border-outline bg-white shadow-[0_30px_60px_-40px_rgba(18,20,29,0.4)]">
@@ -180,11 +177,12 @@ export default function ProductsPage() {
               Our engineers offer on-site plant audits and recommendations
               tailored to your process and production goals.
             </p>
-            <div className="mt-stack-md flex flex-wrap items-center justify-center gap-gutter">
+            <div className="mt-stack-md flex flex-wrap items-center justify-center gap-3">
               <Link href="/contact" className="btn-cta">
                 Request a Plant Audit
                 <MSym name="arrow_forward" />
               </Link>
+              <DownloadProfile variant="outline" />
               <Link href="/about" className="btn-outline">
                 Learn About SIC
               </Link>
