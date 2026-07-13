@@ -47,14 +47,15 @@ export function Stagger({ children, className, delayChildren = 0.05, stagger = 0
   );
 }
 
-export function Item({ children, className, y = 24 }) {
+export function Item({ children, className, y = 24, x = 0, hover = false }) {
   return (
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y },
-        show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: easeOut } },
+        hidden: { opacity: 0, y, x },
+        show: { opacity: 1, y: 0, x: 0, transition: { duration: 0.55, ease: easeOut } },
       }}
+      whileHover={hover ? { y: -6, transition: { duration: 0.25, ease: "easeOut" } } : undefined}
     >
       {children}
     </motion.div>

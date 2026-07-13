@@ -31,8 +31,7 @@ export default function AboutPage() {
       <section className="bg-surface py-stack-lg">
         <div className="container-x grid grid-cols-1 items-center gap-stack-lg lg:grid-cols-2">
           <Reveal className="relative order-2 lg:order-1">
-            <div className="absolute -right-4 -top-4 z-0 h-24 w-24 border-r-2 border-t-2 border-accent opacity-40" />
-            <div className="relative z-10 h-[440px] w-full overflow-hidden rounded border border-outline">
+            <div className="relative z-10 h-[440px] w-full overflow-hidden rounded-xl border border-outline shadow-[0_30px_60px_-30px_rgba(18,20,29,0.35)]">
               <Image
                 src="/photos/heavy-industry.jpg"
                 alt="Heavy industrial machinery"

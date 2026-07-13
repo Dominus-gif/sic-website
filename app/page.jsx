@@ -79,8 +79,7 @@ export default function HomePage() {
         <div className="container-x grid grid-cols-1 items-center gap-stack-lg lg:grid-cols-2">
           {/* Real team photo */}
           <Reveal className="relative">
-            <div className="absolute -left-4 -top-4 z-0 h-24 w-24 border-l-2 border-t-2 border-brand opacity-40" />
-            <div className="relative z-10 h-[460px] w-full overflow-hidden rounded border border-outline">
+            <div className="relative z-10 h-[460px] w-full overflow-hidden rounded-xl border border-outline shadow-[0_30px_60px_-30px_rgba(18,20,29,0.35)]">
               <Image
                 src="/photos/site-2.jpg"
                 alt="Shah Industrial Corporation team receiving industry awards"
@@ -89,7 +88,7 @@ export default function HomePage() {
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <div className="absolute -bottom-8 -right-4 z-20 hidden rounded border border-white/10 bg-brand p-stack-md text-white shadow-xl md:block">
+            <div className="absolute -bottom-6 -right-4 z-20 hidden rounded-lg border border-white/10 bg-brand p-stack-md text-white shadow-xl md:block">
               <div className="font-display text-display-lg font-bold leading-none">3+</div>
               <div className="mt-2 text-label-caps font-semibold uppercase tracking-[0.1em] opacity-80">
                 Decades of
@@ -216,7 +215,7 @@ export default function HomePage() {
 
       {/* ===================== INDUSTRIES ===================== */}
       <section id="industries" className="relative overflow-hidden bg-surface py-stack-lg">
-        <div className="absolute right-0 top-0 h-full w-1/3 rotate-12 blueprint-pattern opacity-20" />
+        <div className="pointer-events-none absolute inset-0 blueprint-pattern opacity-20 [mask-image:radial-gradient(ellipse_70%_60%_at_100%_0%,#000,transparent_70%)]" />
         <div className="container-x relative z-10">
           <Reveal className="mb-stack-lg flex flex-col items-start justify-between gap-gutter md:flex-row md:items-end">
             <div className="max-w-xl">

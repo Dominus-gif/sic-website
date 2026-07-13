@@ -22,19 +22,19 @@ export default function ProductsPage() {
 
       {/* Services detail */}
       <section className="bg-surface py-stack-lg">
-        <Stagger className="container-x space-y-gutter" stagger={0.06}>
+        <Stagger className="container-x space-y-gutter" stagger={0.08}>
           {services.map((s, i) => (
-            <Item key={s.slug}>
+            <Item key={s.slug} hover x={i % 2 === 0 ? -36 : 36}>
               <div
                 id={s.slug}
-                className="group grid grid-cols-1 gap-8 rounded-xl border border-outline bg-white p-8 transition-all hover:border-brand hover:shadow-sm lg:grid-cols-12 lg:p-10"
+                className="group grid grid-cols-1 gap-8 rounded-xl border border-outline bg-white p-8 transition-colors hover:border-brand hover:shadow-[0_20px_50px_-24px_rgba(26,79,149,0.35)] lg:grid-cols-12 lg:p-10"
               >
                 <div className="lg:col-span-5">
                   <div className="flex items-center gap-4">
-                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded bg-cad text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-cad text-brand shadow-sm transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white">
                       <MSym name={s.sym} className="text-3xl" />
                     </span>
-                    <span className="font-mono text-mono-data text-outline">
+                    <span className="font-mono text-2xl font-semibold text-outline transition-colors group-hover:text-accent">
                       0{i + 1}
                     </span>
                   </div>
@@ -53,11 +53,14 @@ export default function ProductsPage() {
                   </h3>
                   <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {s.points.map((p) => (
-                      <li key={p} className="flex items-start gap-3">
-                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
-                          <MSym name="check" className="text-base" />
+                      <li
+                        key={p.text}
+                        className="flex items-center gap-3 rounded-lg border border-outline/60 bg-cad px-3 py-2.5 transition-colors hover:border-brand/40"
+                      >
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-brand/10 text-brand">
+                          <MSym name={p.sym} className="text-xl" />
                         </span>
-                        <span className="text-ink">{p}</span>
+                        <span className="text-sm text-ink">{p.text}</span>
                       </li>
                     ))}
                   </ul>

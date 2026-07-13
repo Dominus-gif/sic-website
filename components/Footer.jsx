@@ -32,10 +32,17 @@ export default function Footer() {
           <p className="text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
             Solutions
           </p>
-          <ul className="space-y-2 text-white/70">
-            {services.slice(0, 4).map((s) => (
+          <ul className="space-y-2.5 text-white/70">
+            {services.slice(0, 5).map((s) => (
               <li key={s.slug}>
-                <Link href="/products" className="transition-colors hover:text-accent">
+                <Link
+                  href="/products"
+                  className="group flex items-center gap-2.5 transition-colors hover:text-accent"
+                >
+                  <MSym
+                    name={s.sym}
+                    className="text-lg text-white/40 transition-colors group-hover:text-accent"
+                  />
                   {s.short}
                 </Link>
               </li>
@@ -48,11 +55,31 @@ export default function Footer() {
           <p className="text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
             Resources
           </p>
-          <ul className="space-y-2 text-white/70">
-            <li><Link href="/about" className="transition-colors hover:text-accent">Company Profile</Link></li>
-            <li><Link href="/blog" className="transition-colors hover:text-accent">Case Studies</Link></li>
-            <li><Link href="/about" className="transition-colors hover:text-accent">Safety Protocols</Link></li>
-            <li><Link href="/products" className="transition-colors hover:text-accent">ISO Certificates</Link></li>
+          <ul className="space-y-2.5 text-white/70">
+            <li>
+              <Link href="/about" className="group flex items-center gap-2.5 transition-colors hover:text-accent">
+                <MSym name="business" className="text-lg text-white/40 transition-colors group-hover:text-accent" />
+                Company Profile
+              </Link>
+            </li>
+            <li>
+              <Link href="/products" className="group flex items-center gap-2.5 transition-colors hover:text-accent">
+                <MSym name="precision_manufacturing" className="text-lg text-white/40 transition-colors group-hover:text-accent" />
+                Our Solutions
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="group flex items-center gap-2.5 transition-colors hover:text-accent">
+                <MSym name="health_and_safety" className="text-lg text-white/40 transition-colors group-hover:text-accent" />
+                Safety Protocols
+              </Link>
+            </li>
+            <li>
+              <Link href="/products" className="group flex items-center gap-2.5 transition-colors hover:text-accent">
+                <MSym name="verified" className="text-lg text-white/40 transition-colors group-hover:text-accent" />
+                ISO Certificates
+              </Link>
+            </li>
           </ul>
         </div>
 
