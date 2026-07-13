@@ -95,9 +95,20 @@ export default function Footer() {
           </p>
           <div className="space-y-1 font-mono text-mono-data text-white/80">
             {company.phones.map((p) => (
-              <p key={p}>{p}</p>
+              <a
+                key={p}
+                href={`tel:${p.replace(/[^+\d]/g, "")}`}
+                className="block transition-colors hover:text-accent"
+              >
+                {p}
+              </a>
             ))}
-            <p>{company.email}</p>
+            <a
+              href={`mailto:${company.email}`}
+              className="block break-all transition-colors hover:text-accent"
+            >
+              {company.email}
+            </a>
           </div>
         </div>
       </div>
