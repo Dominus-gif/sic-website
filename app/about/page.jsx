@@ -104,15 +104,15 @@ export default function AboutPage() {
           <Stagger className="mt-stack-lg grid grid-cols-2 gap-gutter lg:grid-cols-4" stagger={0.08}>
             {gallery.map((g) => (
               <Item key={g.src}>
-                <div className="group relative h-64 overflow-hidden rounded border border-outline">
+                <div className="group relative h-64 overflow-hidden rounded-xl border border-outline">
                   <Image
                     src={g.src}
                     alt={g.alt}
                     fill
                     sizes="(max-width: 1024px) 50vw, 25vw"
-                    className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
               </Item>
             ))}
@@ -165,11 +165,15 @@ export default function AboutPage() {
               What we stand for
             </h2>
           </Reveal>
-          <Stagger className="mt-stack-lg grid grid-cols-1 gap-gutter sm:grid-cols-2 lg:grid-cols-3" stagger={0.07}>
+          <Stagger className="mt-stack-lg grid grid-cols-1 gap-gutter sm:grid-cols-2 lg:grid-cols-3" stagger={0.09}>
             {values.map((v) => (
-              <Item key={v.title}>
-                <div className="card h-full">
-                  <h3 className="font-display text-headline-md font-semibold text-primary">
+              <Item key={v.title} hover>
+                <div className="group relative h-full overflow-hidden rounded-xl border border-outline bg-white p-8 transition-colors hover:border-brand hover:shadow-[0_20px_50px_-24px_rgba(26,79,149,0.35)]">
+                  <span className="absolute left-0 top-0 h-1 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-brand/10 text-brand shadow-sm transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white">
+                    <MSym name={v.sym} className="text-3xl" />
+                  </div>
+                  <h3 className="mt-5 font-display text-headline-md font-semibold text-primary">
                     {v.title}
                   </h3>
                   <p className="mt-2 leading-relaxed text-muted">{v.text}</p>

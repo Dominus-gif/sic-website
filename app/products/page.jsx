@@ -3,7 +3,7 @@ import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import MSym from "@/components/MSym";
 import { Reveal, Stagger, Item } from "@/components/Motion";
-import { services, partnerLogos } from "@/lib/site";
+import { services, elecon, oemPartners } from "@/lib/site";
 
 export const metadata = {
   title: "Product & Services",
@@ -71,29 +71,100 @@ export default function ProductsPage() {
         </Stagger>
       </section>
 
-      {/* Partners strip */}
-      <section className="border-y border-outline bg-cad py-stack-lg">
-        <div className="container-x text-center">
-          <Reveal>
-            <span className="eyebrow mb-stack-sm block">Powered by leading OEMs</span>
-            <h2 className="font-display text-headline-lg font-bold text-primary">
-              Genuine equipment, warranty-backed support
+      {/* ===================== OEM PARTNERS ===================== */}
+      <section id="oem-partners" className="border-y border-outline bg-cad py-stack-lg">
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="eyebrow mb-stack-sm block">OEM Partners</span>
+            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
+              World-class technology, delivered in India
             </h2>
+            <p className="mt-4 text-muted">
+              We represent leading global OEMs — backed by genuine spares,
+              warranties, and on-site engineering support.
+            </p>
           </Reveal>
-          <Stagger className="mt-8 flex flex-wrap items-center justify-center gap-4" stagger={0.07}>
-            {partnerLogos.map((p) => (
-              <Item key={p.name}>
-                <div className="flex h-20 w-40 items-center justify-center rounded border border-outline bg-white px-5 py-3">
+
+          {/* Featured: Elecon */}
+          <Reveal className="mt-stack-lg overflow-hidden rounded-xl border border-outline bg-white shadow-[0_30px_60px_-40px_rgba(18,20,29,0.4)]">
+            <div className="grid grid-cols-1 gap-10 p-8 lg:grid-cols-12 lg:p-10">
+              <div className="lg:col-span-4">
+                <div className="flex h-14 items-center">
                   <Image
-                    src={p.src}
-                    alt={`${p.name} logo`}
-                    width={130}
-                    height={52}
-                    className="max-h-12 w-auto object-contain"
+                    src={elecon.logo}
+                    alt="Elecon logo"
+                    width={160}
+                    height={56}
+                    className="h-11 w-auto object-contain"
                   />
                 </div>
-              </Item>
-            ))}
+                <span className="mt-6 block text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
+                  {elecon.focus}
+                </span>
+                <h3 className="mt-2 font-display text-headline-md font-bold text-primary">
+                  The complete Elecon range
+                </h3>
+                <p className="mt-3 leading-relaxed text-muted">{elecon.intro}</p>
+                <Link href="/contact" className="btn-cta mt-6">
+                  Enquire about Elecon
+                  <MSym name="arrow_forward" />
+                </Link>
+              </div>
+
+              <div className="lg:col-span-8">
+                <Stagger className="grid grid-cols-2 gap-4 sm:grid-cols-3" stagger={0.06}>
+                  {elecon.categories.map((c) => (
+                    <Item key={c.name} hover>
+                      <div className="group h-full overflow-hidden rounded-lg border border-outline bg-cad transition-colors hover:border-brand">
+                        <div className="relative h-28 overflow-hidden bg-white">
+                          <Image
+                            src={c.img}
+                            alt={c.name}
+                            fill
+                            sizes="(max-width: 640px) 45vw, 200px"
+                            className="object-contain p-3 transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </div>
+                        <p className="px-3 py-3 text-center text-sm font-semibold leading-snug text-primary">
+                          {c.name}
+                        </p>
+                      </div>
+                    </Item>
+                  ))}
+                </Stagger>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Other OEM partners */}
+          <Stagger className="mt-gutter grid grid-cols-1 gap-gutter md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+            {oemPartners
+              .filter((p) => p.name !== "Elecon")
+              .map((p) => (
+                <Item key={p.name} hover>
+                  <div className="group h-full rounded-xl border border-outline bg-white p-6 transition-colors hover:border-brand hover:shadow-[0_20px_50px_-24px_rgba(26,79,149,0.35)]">
+                    <div className="flex h-12 items-center">
+                      {p.logo ? (
+                        <Image
+                          src={p.logo}
+                          alt={`${p.name} logo`}
+                          width={150}
+                          height={48}
+                          className="max-h-11 w-auto object-contain"
+                        />
+                      ) : (
+                        <span className="font-display text-xl font-bold text-primary">
+                          {p.name}
+                        </span>
+                      )}
+                    </div>
+                    <span className="mt-5 block text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
+                      {p.focus}
+                    </span>
+                    <p className="mt-2 leading-relaxed text-muted">{p.desc}</p>
+                  </div>
+                </Item>
+              ))}
           </Stagger>
         </div>
       </section>

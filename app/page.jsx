@@ -46,10 +46,16 @@ export default function HomePage() {
               </h1>
             </Item>
             <Item>
+              <p className="font-display text-xl font-semibold text-white/90">
+                Building Your Visions, Creating Reality.
+              </p>
+            </Item>
+            <Item>
               <p className="max-w-xl text-lg leading-relaxed text-svariant">
-                Shah Industrial Corporation delivers mission-critical
-                engineering solutions for India&apos;s largest mining, steel,
-                and power operations. Precision-driven, field-tested.
+                Shah Industrial Corporation (SIC) is a trusted pan-India
+                partner delivering integrated bulk material handling, hydraulic,
+                crushing, and flow control solutions for mission-critical
+                industrial operations.
               </p>
             </Item>
             <Item>
@@ -107,9 +113,9 @@ export default function HomePage() {
               Creating Reality
             </h2>
             <p className="text-lg leading-relaxed text-muted">
-              Shah Industrial Corporation (SIC) is a trusted pan-India partner
-              delivering integrated bulk material handling, hydraulic, crushing,
-              and flow control solutions.
+              For more than three decades, SIC has supported India&apos;s
+              largest mining, steel, cement, and power plants with reliable
+              products, engineered solutions, and dependable on-site services.
             </p>
             <div className="grid grid-cols-1 gap-gutter py-stack-sm sm:grid-cols-2">
               <div className="border-l-4 border-brand bg-cad p-4">
@@ -122,9 +128,13 @@ export default function HomePage() {
               </div>
             </div>
             <p className="leading-relaxed text-muted">
-              Founded in Chhattisgarh by the Shah Brothers, we have supported
-              India&apos;s largest mining, steel, and power plants with
-              field-proven products and on-site expertise.
+              Founded in Chhattisgarh by the Shah Brothers and now serving
+              customers across India, SIC has built its reputation on
+              engineering excellence, operational reliability, and long-term
+              customer partnerships. Today the company is broadening into the
+              services domain with end-to-end solutions — expanding its
+              footprint across multiple states and pioneering new opportunities
+              for growth.
             </p>
             <Link href="/about" className="btn-outline">
               Learn More About Our Journey
