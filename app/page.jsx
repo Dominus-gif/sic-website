@@ -227,25 +227,44 @@ export default function HomePage() {
       <section id="industries" className="relative overflow-hidden bg-surface py-stack-lg">
         <div className="pointer-events-none absolute inset-0 blueprint-pattern opacity-20 [mask-image:radial-gradient(ellipse_70%_60%_at_100%_0%,#000,transparent_70%)]" />
         <div className="container-x relative z-10">
-          <Reveal className="mb-stack-lg flex flex-col items-start justify-between gap-gutter md:flex-row md:items-end">
-            <div className="max-w-xl">
-              <span className="eyebrow mb-stack-sm block">Industries Served</span>
-              <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
-                Powering India&apos;s Core Industrial Infrastructure
-              </h2>
-            </div>
-            <MSym name="settings" className="hidden text-[80px] text-outline md:block" />
+          <Reveal className="mx-auto mb-stack-lg max-w-2xl text-center">
+            <span className="eyebrow mb-stack-sm block">Industries Served</span>
+            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
+              Powering India&apos;s Core Industrial Infrastructure
+            </h2>
+            <p className="mt-4 text-muted">
+              For three decades we have kept the plants that keep the country
+              running — where reliability is never optional.
+            </p>
           </Reveal>
 
-          <Stagger className="grid grid-cols-2 gap-gutter md:grid-cols-4" stagger={0.08}>
-            {industries.map((ind) => (
-              <Item key={ind.name}>
-                <div className="group cursor-default">
-                  <div className="mb-4 h-1 bg-outline transition-colors group-hover:bg-accent" />
-                  <h3 className="font-display text-headline-md font-semibold text-primary transition-colors group-hover:text-accent">
-                    {ind.name}
-                  </h3>
-                  <p className="mt-2 text-muted">{ind.text}</p>
+          <Stagger className="grid grid-cols-1 gap-gutter sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+            {industries.map((ind, i) => (
+              <Item key={ind.name} hover>
+                <div className="group relative h-80 overflow-hidden rounded-xl border border-white/10">
+                  <Image
+                    src={ind.img}
+                    alt={`${ind.name} industry`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-obsidian/10 transition-colors duration-300 group-hover:from-brand/95 group-hover:via-brand/40" />
+                  <span className="absolute left-0 top-0 z-10 h-1 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
+                  <span className="absolute right-5 top-5 z-10 font-mono text-mono-data text-white/40">
+                    0{i + 1}
+                  </span>
+                  <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col p-6">
+                    <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent text-white shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+                      <MSym name={ind.sym} className="text-2xl" fill />
+                    </span>
+                    <h3 className="font-display text-headline-md font-bold text-white">
+                      {ind.name}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-white/85">
+                      {ind.text}
+                    </p>
+                  </div>
                 </div>
               </Item>
             ))}
