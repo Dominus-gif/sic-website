@@ -49,7 +49,7 @@ export default function HomePage() {
               </div>
             </Item>
             <Item>
-              <h1 className="font-display text-[40px] font-bold leading-[1.05] tracking-tight text-white sm:text-[64px]">
+              <h1 className="font-display text-[40px] font-extrabold leading-[1.05] tracking-[-0.02em] text-white sm:text-[64px]">
                 WE BUILD,
                 <br />
                 <span className="text-accent">YOU THRIVE</span>
@@ -101,7 +101,7 @@ export default function HomePage() {
                 value={s.value}
                 className="font-display text-4xl font-bold text-white sm:text-5xl"
               />
-              <div className="mt-2 text-sm font-medium uppercase tracking-[0.08em] text-white/70">
+              <div className="mt-2 font-ui text-sm font-medium uppercase tracking-[0.08em] text-white/70">
                 {s.label}
               </div>
             </Item>

@@ -70,6 +70,14 @@ export default function AboutPage() {
                 industrial groups.
               </p>
             </div>
+            <blockquote className="mt-8 border-l-4 border-accent pl-6">
+              <p className="font-serif text-2xl italic leading-snug text-primary sm:text-[28px]">
+                &ldquo;Building your visions, creating reality.&rdquo;
+              </p>
+              <footer className="mt-3 font-ui text-label-caps font-semibold uppercase tracking-[0.1em] text-muted">
+                The Shah Brothers — Founders
+              </footer>
+            </blockquote>
           </Reveal>
         </div>
       </section>

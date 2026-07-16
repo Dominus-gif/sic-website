@@ -7,7 +7,7 @@ import { company, services } from "@/lib/site";
 const inputClass =
   "w-full rounded border-none bg-cad p-3 text-base text-ink placeholder:text-steel/60 focus:outline-none focus:ring-2 focus:ring-brand";
 const labelClass =
-  "text-label-caps font-semibold uppercase tracking-[0.1em] text-muted";
+  "font-ui text-label-caps font-semibold uppercase tracking-[0.1em] text-muted";
 
 export default function ContactForm() {
   const [status, setStatus] = useState("idle");

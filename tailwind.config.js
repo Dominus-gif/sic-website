@@ -24,9 +24,16 @@ module.exports = {
         steel: "#4A5568",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        // Body prose — Work Sans (Inter/Helvetica fallback)
+        sans: ["var(--font-body)", "var(--font-ui)", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        // Display / headlines — Montserrat
+        display: ["var(--font-display)", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        // UI text — Inter
+        ui: ["var(--font-ui)", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        // Editorial pull-quotes — EB Garamond
+        serif: ["var(--font-serif)", "Garamond", "Times New Roman", "serif"],
+        // Data / part numbers — JetBrains Mono
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       fontSize: {
         "label-caps": ["12px", { lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "600" }],

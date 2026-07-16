@@ -19,7 +19,7 @@ export default function SectionHeading({
     >
       {eyebrow && (
         <span
-          className={`mb-4 inline-flex items-center gap-2 text-label-caps font-semibold uppercase tracking-[0.1em] text-accent ${
+          className={`mb-4 inline-flex items-center gap-2 font-ui text-label-caps font-semibold uppercase tracking-[0.1em] text-accent ${
             isCenter ? "justify-center" : ""
           }`}
         >

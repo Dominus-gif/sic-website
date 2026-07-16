@@ -1,10 +1,46 @@
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Montserrat, Work_Sans, Inter, JetBrains_Mono, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { company } from "@/lib/site";
+
+// Display / headlines
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-display",
+  display: "swap",
+});
+// Body prose
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+// UI text (eyebrows, buttons, nav, labels)
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ui",
+  display: "swap",
+});
+// Data / part numbers / specs
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
+// Editorial pull-quotes
+const ebGaramond = EB_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL("https://shahindustrialcorporation.com"),
@@ -40,11 +76,9 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+  const fontVars = `${montserrat.variable} ${workSans.variable} ${inter.variable} ${jetbrainsMono.variable} ${ebGaramond.variable}`;
   return (
-    <html
-      lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
-    >
+    <html lang="en" className={`${fontVars} scroll-smooth`}>
       <head>
         <link
           rel="stylesheet"

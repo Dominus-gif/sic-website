@@ -34,7 +34,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 border-b border-outline bg-surface/95 backdrop-blur transition-all duration-300 ${
+      className={`sticky top-0 z-50 border-b border-outline bg-surface/95 font-ui backdrop-blur transition-all duration-300 ${
         scrolled ? "shadow-md" : ""
       }`}
     >
@@ -66,7 +66,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="whitespace-nowrap rounded bg-brand px-5 py-2.5 font-semibold text-white transition-all hover:bg-primary hover:shadow-lg active:scale-95"
+              className="whitespace-nowrap rounded bg-brand px-5 py-2.5 font-display font-semibold text-white transition-all hover:bg-primary hover:shadow-lg active:scale-95"
             >
               Request Quote
             </Link>
