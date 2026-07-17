@@ -26,9 +26,9 @@
     @apply inline-block font-ui text-label-caps font-semibold uppercase tracking-[0.1em] text-accent;
   }
 
-  /* Buttons — sharp 2px radius, high contrast, Montserrat display face */
+  /* Buttons — sharp 2px radius, Montserrat display face, restrained weight */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded px-6 py-3 font-display text-base font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50;
+    @apply inline-flex items-center justify-center gap-2 rounded px-6 py-3 font-display text-[15px] font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50;
   }
 
   /* Primary action = industrial blue */

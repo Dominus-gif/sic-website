@@ -39,7 +39,7 @@ export default function HomePage() {
         </div>
 
         <div className="container-x relative z-10 w-full">
-          <Stagger className="max-w-2xl space-y-stack-md" stagger={0.12}>
+          <Stagger className="max-w-2xl space-y-5 sm:space-y-7" stagger={0.12}>
             <Item>
               <div className="inline-flex items-center gap-2 rounded border border-accent/30 bg-accent/10 px-3 py-1 backdrop-blur-sm">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
@@ -49,19 +49,19 @@ export default function HomePage() {
               </div>
             </Item>
             <Item>
-              <h1 className="font-display text-[40px] font-extrabold leading-[1.05] tracking-[-0.02em] text-white sm:text-[64px]">
+              <h1 className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-white sm:text-[56px] sm:font-extrabold sm:leading-[1.05] sm:tracking-[-0.02em] lg:text-[64px]">
                 WE BUILD,
                 <br />
                 <span className="text-accent">YOU THRIVE</span>
               </h1>
             </Item>
             <Item>
-              <p className="font-display text-xl font-semibold text-white/90">
+              <p className="font-display text-base font-medium text-white/85 sm:text-xl sm:font-semibold">
                 Building Your Visions, Creating Reality.
               </p>
             </Item>
             <Item>
-              <p className="max-w-xl text-lg leading-relaxed text-svariant">
+              <p className="max-w-xl text-[15px] leading-relaxed text-svariant sm:text-lg">
                 Shah Industrial Corporation (SIC) is a trusted pan-India
                 partner delivering integrated bulk material handling, hydraulic,
                 crushing, and flow control solutions for mission-critical
@@ -136,12 +136,12 @@ export default function HomePage() {
           {/* Copy */}
           <Reveal delay={0.1} className="space-y-stack-md">
             <span className="eyebrow">About SIC</span>
-            <h2 className="font-display text-[32px] font-bold leading-tight tracking-tight text-primary sm:text-display-lg">
+            <h2 className="font-display text-[24px] font-bold leading-[1.2] tracking-tight text-primary sm:text-[38px]">
               Building Your Visions,
               <br />
               Creating Reality
             </h2>
-            <p className="text-lg leading-relaxed text-muted">
+            <p className="text-[15px] leading-relaxed text-muted sm:text-lg">
               For more than three decades, SIC has supported India&apos;s
               largest mining, steel, cement, and power plants with reliable
               products, engineered solutions, and dependable on-site services.
@@ -358,10 +358,10 @@ export default function HomePage() {
         <div className="container-x grid grid-cols-1 gap-stack-lg lg:grid-cols-5">
           <Reveal className="space-y-stack-md lg:col-span-2">
             <span className="eyebrow">Get In Touch</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary sm:text-display-lg">
+            <h2 className="font-display text-[24px] font-bold leading-[1.2] tracking-tight text-primary sm:text-[38px]">
               Start Your Next Engineering Journey
             </h2>
-            <p className="text-lg text-muted">
+            <p className="text-[15px] text-muted sm:text-lg">
               Our team is ready to provide expert guidance and high-performance
               solutions tailored to your operational needs.
             </p>

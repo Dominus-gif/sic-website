@@ -46,7 +46,7 @@ export default function AboutPage() {
 
           <Reveal delay={0.1} className="order-1 lg:order-2">
             <span className="eyebrow mb-stack-sm block">Our Story</span>
-            <h2 className="font-display text-[32px] font-bold tracking-tight text-primary">
+            <h2 className="font-display text-[24px] font-bold leading-[1.2] tracking-tight text-primary sm:text-[38px]">
               A trusted name in Indian heavy industry
             </h2>
             <div className="mt-6 space-y-4 leading-relaxed text-muted">

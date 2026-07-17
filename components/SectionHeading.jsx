@@ -28,7 +28,7 @@ export default function SectionHeading({
         </span>
       )}
       <h2
-        className={`font-display text-[30px] font-bold leading-tight tracking-tight text-balance sm:text-[40px] ${
+        className={`font-display text-[24px] font-bold leading-[1.2] tracking-tight text-balance sm:text-[38px] ${
           invert ? "text-white" : "text-primary"
         }`}
       >
@@ -36,7 +36,7 @@ export default function SectionHeading({
       </h2>
       {subtitle && (
         <p
-          className={`mt-4 text-lg leading-relaxed ${
+          className={`mt-4 text-[15px] leading-relaxed sm:text-lg ${
             invert ? "text-svariant" : "text-muted"
           }`}
         >

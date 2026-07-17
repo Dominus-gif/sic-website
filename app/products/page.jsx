@@ -170,7 +170,7 @@ export default function ProductsPage() {
       <section className="bg-surface py-stack-lg text-center">
         <div className="container-x">
           <Reveal>
-            <h2 className="mx-auto max-w-2xl font-display text-[32px] font-bold tracking-tight text-primary text-balance sm:text-display-lg">
+            <h2 className="mx-auto max-w-2xl font-display text-[24px] font-bold leading-[1.2] tracking-tight text-primary text-balance sm:text-[38px]">
               Not sure which solution fits your plant?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted">
