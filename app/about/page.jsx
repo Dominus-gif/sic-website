@@ -200,16 +200,19 @@ export default function AboutPage() {
           <Stagger className="mx-auto mt-stack-lg grid max-w-4xl grid-cols-1 gap-gutter sm:grid-cols-3" stagger={0.1}>
             {leadership.map((l) => (
               <Item key={l.name} hover className="h-full">
-                <div className="flex h-full flex-col items-center rounded-xl border border-outline bg-white p-8 text-center transition-colors hover:border-brand">
-                  <div className="h-24 w-24 overflow-hidden rounded-full bg-gradient-to-br from-brand to-primary shadow-sm ring-4 ring-cad">
-                    <Avatar src={l.photo} name={l.name} />
+                <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-outline bg-white transition-all hover:border-brand hover:shadow-md">
+                  <div className="relative h-64 overflow-hidden bg-gradient-to-br from-brand to-primary">
+                    <Avatar src={l.photo} name={l.name} position={l.position} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/25 to-transparent" />
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-semibold text-primary">
-                    {l.name}
-                  </h3>
-                  <p className="mt-2 font-ui text-xs font-semibold uppercase tracking-[0.1em] text-accent">
-                    {l.role}
-                  </p>
+                  <div className="p-6 text-center">
+                    <h3 className="font-display text-xl font-semibold text-primary">
+                      {l.name}
+                    </h3>
+                    <p className="mt-1 font-ui text-xs font-semibold uppercase tracking-[0.1em] text-accent">
+                      {l.role}
+                    </p>
+                  </div>
                 </div>
               </Item>
             ))}

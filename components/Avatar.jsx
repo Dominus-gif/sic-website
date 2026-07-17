@@ -3,11 +3,11 @@
 import { useState, useRef, useEffect } from "react";
 
 /**
- * Circular avatar. Shows the photo if it loads; otherwise falls back to the
- * person's initials — so the leadership cards look right even before the real
- * founder photos are added to /public/team/.
+ * Portrait image with an initials fallback — used for the leadership cards.
+ * `position` controls the object-position focal point (e.g. "center 32%") so
+ * environmental desk photos keep the face in frame.
  */
-export default function Avatar({ src, name }) {
+export default function Avatar({ src, name, position = "center 30%" }) {
   const [failed, setFailed] = useState(!src);
   const ref = useRef(null);
   const initials = name
@@ -15,7 +15,6 @@ export default function Avatar({ src, name }) {
     .map((n) => n[0])
     .join("");
 
-  // Catch images that errored before hydration attached the onError handler.
   useEffect(() => {
     const img = ref.current;
     if (img && img.complete && img.naturalWidth === 0) setFailed(true);
@@ -29,12 +28,13 @@ export default function Avatar({ src, name }) {
         src={src}
         alt={name}
         onError={() => setFailed(true)}
+        style={{ objectPosition: position }}
         className="h-full w-full object-cover"
       />
     );
   }
   return (
-    <span className="flex h-full w-full items-center justify-center font-display text-2xl font-bold text-white">
+    <span className="flex h-full w-full items-center justify-center font-display text-4xl font-bold text-white">
       {initials}
     </span>
   );
