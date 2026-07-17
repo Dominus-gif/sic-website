@@ -21,32 +21,30 @@ export default function HomePage() {
   return (
     <>
       {/* ===================== HERO ===================== */}
-      <header className="relative flex min-h-[92vh] items-center overflow-hidden bg-obsidian">
+      <header className="relative flex min-h-[86vh] items-center overflow-hidden bg-obsidian">
         {/* Photo background */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/photos/mining-bulldozer.jpg"
-            alt="Heavy mining equipment on an industrial site"
+            src="/photos/hero-industrial.jpg"
+            alt="Industrial processing plant at dusk"
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-45 grayscale"
+            className="object-cover opacity-55 grayscale"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/85 to-obsidian/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-obsidian/60" />
-          <div className="absolute inset-0 blueprint-pattern-dark opacity-20" />
-          <div className="absolute -right-32 top-1/4 h-96 w-96 rounded-full bg-brand/20 blur-[140px]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/80 to-obsidian/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/10 to-obsidian/50" />
+          <div className="absolute inset-0 blueprint-pattern-dark opacity-15" />
+          <div className="absolute -right-24 top-1/3 h-96 w-96 rounded-full bg-brand/15 blur-[150px]" />
         </div>
 
         <div className="container-x relative z-10 w-full">
           <Stagger className="max-w-2xl space-y-5 sm:space-y-7" stagger={0.12}>
             <Item>
-              <div className="inline-flex items-center gap-2 rounded border border-accent/30 bg-accent/10 px-3 py-1 backdrop-blur-sm">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
-                <span className="text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
-                  Engineering Excellence Since 1985
-                </span>
-              </div>
+              <span className="inline-flex items-center gap-3 font-ui text-label-caps font-semibold uppercase tracking-[0.14em] text-accent">
+                <span className="h-px w-8 bg-accent" />
+                Integrated Industrial Solutions
+              </span>
             </Item>
             <Item>
               <h1 className="font-display text-[34px] font-bold leading-[1.12] tracking-tight text-white sm:text-[56px] sm:font-extrabold sm:leading-[1.05] sm:tracking-[-0.02em] lg:text-[64px]">
@@ -386,8 +384,10 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="rounded border border-outline bg-white p-8 shadow-sm lg:col-span-3">
-            <ContactForm />
+          <Reveal delay={0.1} className="lg:col-span-3 lg:h-full">
+            <div className="flex h-full flex-col justify-center rounded-xl border border-outline bg-white p-8 shadow-sm">
+              <ContactForm />
+            </div>
           </Reveal>
         </div>
       </section>
