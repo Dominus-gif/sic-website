@@ -99,7 +99,7 @@ export default function HomePage() {
             <Item key={s.label} className="text-center lg:text-left">
               <Counter
                 value={s.value}
-                className="font-display text-4xl font-bold text-white sm:text-5xl"
+                className="font-display text-[30px] font-bold leading-none tracking-tight text-white [hyphens:none] sm:text-5xl"
               />
               <div className="mt-2 font-ui text-sm font-medium uppercase tracking-[0.08em] text-white/70">
                 {s.label}

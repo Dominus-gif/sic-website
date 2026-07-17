@@ -5,20 +5,22 @@ import { company } from "@/lib/site";
 export default function Logo({ variant = "light" }) {
   const textColor = variant === "dark" ? "text-white" : "text-primary";
   return (
-    <Link href="/" className="flex items-center gap-3" aria-label={company.name}>
-      <Image
-        src="/brand/sic-logo.png"
-        alt="Shah Industrial Corporation logo"
-        width={56}
-        height={53}
-        priority
-        className="h-12 w-auto object-contain"
-      />
-      <span className="hidden flex-col leading-none sm:flex">
-        <span className={`font-display text-lg font-bold tracking-tight ${textColor}`}>
+    <Link href="/" className="flex items-center gap-2.5" aria-label={company.name}>
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded border border-outline bg-white">
+        <Image
+          src="/brand/sic-logo-wide.png"
+          alt="Shah Industrial Corporation logo"
+          width={44}
+          height={30}
+          priority
+          className="h-8 w-auto object-contain"
+        />
+      </span>
+      <span className="flex flex-col leading-none">
+        <span className={`font-display text-[15px] font-bold leading-tight tracking-tight sm:text-lg ${textColor}`}>
           Shah Industrial
         </span>
-        <span className="mt-0.5 text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
+        <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-accent sm:text-label-caps">
           Corporation
         </span>
       </span>

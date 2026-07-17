@@ -84,14 +84,14 @@ export default function AboutPage() {
 
       {/* Stats band */}
       <section className="border-y border-outline bg-cad">
-        <Stagger className="container-x grid grid-cols-2 gap-gutter py-stack-md lg:grid-cols-4">
+        <Stagger className="container-x grid grid-cols-2 gap-4 py-stack-md sm:gap-gutter lg:grid-cols-4">
           {stats.map((s) => (
-            <Item key={s.label}>
-              <div className="border-l-4 border-brand bg-white p-6">
-                <div className="font-display text-display-lg font-bold text-brand">
+            <Item key={s.label} className="h-full">
+              <div className="flex h-full flex-col justify-center border-l-4 border-brand bg-white p-5 sm:p-6">
+                <div className="font-display text-[30px] font-bold leading-none tracking-tight text-brand [hyphens:none] sm:text-[38px]">
                   {s.value}
                 </div>
-                <div className="mt-1 text-muted">{s.label}</div>
+                <div className="mt-2 text-sm text-muted sm:text-base">{s.label}</div>
               </div>
             </Item>
           ))}
@@ -198,15 +198,17 @@ export default function AboutPage() {
           />
           <Stagger className="mx-auto mt-stack-lg grid max-w-4xl grid-cols-1 gap-gutter sm:grid-cols-3" stagger={0.1}>
             {leadership.map((l) => (
-              <Item key={l.name}>
-                <div className="rounded-xl border border-outline bg-white p-8 text-center">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand font-display text-2xl font-bold text-white">
+              <Item key={l.name} hover className="h-full">
+                <div className="flex h-full flex-col items-center rounded-xl border border-outline bg-white p-8 text-center transition-colors hover:border-brand">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand to-primary font-display text-2xl font-bold text-white shadow-sm">
                     {l.name.split(" ").map((n) => n[0]).join("")}
                   </div>
-                  <h3 className="mt-5 font-display text-headline-md font-semibold text-primary">
+                  <h3 className="mt-5 font-display text-xl font-semibold text-primary">
                     {l.name}
                   </h3>
-                  <p className="mt-1 text-mono-data font-medium text-accent">{l.role}</p>
+                  <p className="mt-2 font-ui text-xs font-semibold uppercase tracking-[0.1em] text-accent">
+                    {l.role}
+                  </p>
                 </div>
               </Item>
             ))}

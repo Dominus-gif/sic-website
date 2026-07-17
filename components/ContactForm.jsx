@@ -4,8 +4,10 @@ import { useState } from "react";
 import MSym from "@/components/MSym";
 import { company, services } from "@/lib/site";
 
-const inputClass =
-  "w-full rounded border-none bg-cad p-3 text-base text-ink placeholder:text-steel/60 focus:outline-none focus:ring-2 focus:ring-brand";
+const fieldBase =
+  "w-full rounded border border-outline bg-cad px-3.5 text-base text-ink transition-colors placeholder:text-steel/50 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25";
+const inputClass = `${fieldBase} h-12`;
+const textareaClass = `${fieldBase} min-h-[132px] resize-y py-3`;
 const labelClass =
   "font-ui text-label-caps font-semibold uppercase tracking-[0.1em] text-muted";
 
@@ -59,7 +61,7 @@ export default function ContactForm() {
           rows={4}
           required
           placeholder="Describe your industrial requirements..."
-          className={inputClass}
+          className={textareaClass}
         />
       </div>
       <div className="md:col-span-2">
