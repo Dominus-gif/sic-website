@@ -3,6 +3,7 @@ import Image from "next/image";
 import MSym from "@/components/MSym";
 import WhatsappIcon from "@/components/WhatsappIcon";
 import DownloadProfile from "@/components/DownloadProfile";
+import AddressLink from "@/components/AddressLink";
 import { company, services, nav } from "@/lib/site";
 
 const waHref = `https://wa.me/${company.phones[0].replace(/[^\d]/g, "")}`;
@@ -76,7 +77,9 @@ export default function Footer() {
           </p>
           <div className="flex items-start gap-3 text-white/70">
             <MSym name="location_on" className="mt-0.5 shrink-0 text-accent" />
-            <span>{company.address}</span>
+            <AddressLink className="transition-colors hover:text-accent">
+              {company.address}
+            </AddressLink>
           </div>
           <div className="flex items-start gap-3">
             <MSym name="call" className="mt-0.5 shrink-0 text-accent" />
@@ -115,7 +118,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x flex flex-col items-center justify-between gap-4 py-6 text-label-caps uppercase tracking-[0.08em] text-white/60 md:flex-row">
-          <p>&copy; {year} {company.name}. All Rights Reserved.</p>
+          <p>&copy; {year} {company.name}. All rights reserved.</p>
           <div className="flex gap-gutter">
             <Link href="/privacy" className="hover:text-accent">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-accent">Terms of Service</Link>

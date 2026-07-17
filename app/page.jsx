@@ -4,6 +4,7 @@ import MSym from "@/components/MSym";
 import ContactForm from "@/components/ContactForm";
 import SectionHeading from "@/components/SectionHeading";
 import DownloadProfile from "@/components/DownloadProfile";
+import AddressLink from "@/components/AddressLink";
 import Counter from "@/components/Counter";
 import { Reveal, Stagger, Item } from "@/components/Motion";
 import {
@@ -380,7 +381,9 @@ export default function HomePage() {
             </p>
             <div className="space-y-4 pt-2">
               <ContactPoint sym="location_on" title="Regional Headquarters">
-                {company.address}
+                <AddressLink className="transition-colors hover:text-brand">
+                  {company.address}
+                </AddressLink>
               </ContactPoint>
               <ContactPoint sym="mail" title="Email Enquiries">
                 <a href={`mailto:${company.email}`} className="hover:text-brand">

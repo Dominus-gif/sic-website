@@ -1,6 +1,7 @@
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import MSym from "@/components/MSym";
+import AddressLink from "@/components/AddressLink";
 import { Reveal } from "@/components/Motion";
 import { company } from "@/lib/site";
 
@@ -34,7 +35,9 @@ export default function ContactPage() {
 
             <div className="space-y-4">
               <InfoCard sym="location_on" title="Visit Us">
-                {company.address}
+                <AddressLink className="transition-colors hover:text-brand">
+                  {company.address}
+                </AddressLink>
               </InfoCard>
               <InfoCard sym="call" title="Call Us">
                 <div className="flex flex-col gap-1">
