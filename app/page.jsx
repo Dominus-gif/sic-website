@@ -220,9 +220,6 @@ export default function HomePage() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand via-brand/90 to-brand/55" />
-                <span className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded bg-accent text-white shadow-lg">
-                  <MSym name={bento[1].sym} fill />
-                </span>
                 <div className="relative z-10 p-stack-md text-white">
                   <h3 className="mb-stack-sm font-display text-headline-md font-semibold">
                     {bento[1].title}
@@ -250,10 +247,7 @@ export default function HomePage() {
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/50 to-transparent" />
-                    <span className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded bg-white text-brand shadow-md">
-                      <MSym name={s.sym} />
-                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/30 to-transparent" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <h3 className="mb-2 font-display text-lg font-semibold text-primary">
@@ -303,9 +297,7 @@ export default function HomePage() {
                     0{i + 1}
                   </span>
                   <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col p-6">
-                    <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent text-white shadow-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
-                      <MSym name={ind.sym} className="text-2xl" fill />
-                    </span>
+                    <span className="mb-3 h-1 w-10 rounded-full bg-accent transition-all duration-300 group-hover:w-16" />
                     <h3 className="font-display text-headline-md font-bold text-white">
                       {ind.name}
                     </h3>

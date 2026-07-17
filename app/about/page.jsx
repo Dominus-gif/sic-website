@@ -3,6 +3,7 @@ import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
 import DownloadProfile from "@/components/DownloadProfile";
+import Avatar from "@/components/Avatar";
 import MSym from "@/components/MSym";
 import { Reveal, Stagger, Item } from "@/components/Motion";
 import { company, values, leadership, partnerLogos, stats } from "@/lib/site";
@@ -200,8 +201,8 @@ export default function AboutPage() {
             {leadership.map((l) => (
               <Item key={l.name} hover className="h-full">
                 <div className="flex h-full flex-col items-center rounded-xl border border-outline bg-white p-8 text-center transition-colors hover:border-brand">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand to-primary font-display text-2xl font-bold text-white shadow-sm">
-                    {l.name.split(" ").map((n) => n[0]).join("")}
+                  <div className="h-24 w-24 overflow-hidden rounded-full bg-gradient-to-br from-brand to-primary shadow-sm ring-4 ring-cad">
+                    <Avatar src={l.photo} name={l.name} />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-semibold text-primary">
                     {l.name}
