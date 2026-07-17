@@ -17,13 +17,23 @@ export default function Footer() {
       <div className="container-x grid grid-cols-1 gap-10 py-stack-lg md:grid-cols-12">
         {/* Brand */}
         <div className="space-y-5 md:col-span-5">
-          <Image
-            src="/brand/sic-logo.png"
-            alt="Shah Industrial Corporation"
-            width={64}
-            height={60}
-            className="h-14 w-auto rounded bg-white/95 p-1.5"
-          />
+          <div className="flex items-center gap-3">
+            <Image
+              src="/brand/logo-mark.png"
+              alt="Shah Industrial Corporation logo"
+              width={72}
+              height={44}
+              className="h-11 w-auto object-contain"
+            />
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-lg font-bold tracking-tight text-white">
+                Shah Industrial
+              </span>
+              <span className="mt-0.5 text-label-caps font-semibold uppercase tracking-[0.14em] text-accent">
+                Corporation
+              </span>
+            </span>
+          </div>
           <p className="max-w-sm leading-relaxed text-white/70">
             {company.motto}. A trusted pan-India partner delivering integrated
             industrial solutions for mission-critical operations since 1985.

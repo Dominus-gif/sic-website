@@ -11,7 +11,7 @@ import {
   services,
   industries,
   partnerLogos,
-  customers,
+  customerLogos,
   stats,
 } from "@/lib/site";
 
@@ -209,18 +209,28 @@ export default function HomePage() {
               </div>
             </Item>
 
-            {/* Card 2 — blue feature */}
+            {/* Card 2 — Mining, photo with brand wash */}
             <Item>
-              <div className="flex h-full flex-col justify-between rounded border border-white/10 bg-brand p-stack-md text-white">
-                <MSym name={bento[1].sym} className="text-[40px] text-accent" fill />
-                <div>
+              <div className="group relative flex h-full min-h-[300px] flex-col justify-end overflow-hidden rounded border border-white/10">
+                <Image
+                  src={bento[1].img}
+                  alt={bento[1].title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand via-brand/90 to-brand/55" />
+                <span className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded bg-accent text-white shadow-lg">
+                  <MSym name={bento[1].sym} fill />
+                </span>
+                <div className="relative z-10 p-stack-md text-white">
                   <h3 className="mb-stack-sm font-display text-headline-md font-semibold">
                     {bento[1].title}
                   </h3>
-                  <p className="mb-stack-sm opacity-80">{bento[1].summary}</p>
+                  <p className="mb-stack-sm text-sm opacity-90">{bento[1].summary}</p>
                   <Link
                     href="/products"
-                    className="flex items-center gap-2 font-bold text-accent transition-all hover:gap-3"
+                    className="inline-flex items-center gap-2 font-display font-bold text-accent transition-all hover:gap-3"
                   >
                     Explore <MSym name="chevron_right" />
                   </Link>
@@ -228,17 +238,29 @@ export default function HomePage() {
               </div>
             </Item>
 
-            {/* Cards 3–5 */}
+            {/* Cards 3–5 — image header + content */}
             {bento.slice(2).map((s) => (
               <Item key={s.slug}>
-                <div className="group h-full rounded border border-outline bg-white p-stack-md transition-all hover:border-brand hover:shadow-sm">
-                  <div className="mb-stack-sm flex h-12 w-12 items-center justify-center rounded bg-cad text-brand transition-colors group-hover:bg-brand group-hover:text-white">
-                    <MSym name={s.sym} />
+                <div className="group flex h-full flex-col overflow-hidden rounded border border-outline bg-white transition-all hover:border-brand hover:shadow-md">
+                  <div className="relative h-44 overflow-hidden">
+                    <Image
+                      src={s.img}
+                      alt={`${s.short} solutions`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/50 to-transparent" />
+                    <span className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded bg-white text-brand shadow-md">
+                      <MSym name={s.sym} />
+                    </span>
                   </div>
-                  <h3 className="mb-2 font-display text-headline-md font-semibold text-primary">
-                    {s.short} Solutions
-                  </h3>
-                  <p className="text-muted">{s.summary}</p>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="mb-2 font-display text-lg font-semibold text-primary">
+                      {s.short} Solutions
+                    </h3>
+                    <p className="text-sm leading-relaxed text-muted">{s.summary}</p>
+                  </div>
                 </div>
               </Item>
             ))}
@@ -331,22 +353,23 @@ export default function HomePage() {
             title="Serving India's leading industrial groups"
             subtitle="Our products and services keep mission-critical plants running across the mining, steel, cement and power sectors."
           />
-          <Stagger
-            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
-            stagger={0.06}
-          >
-            {customers.map((name) => (
-              <Item key={name} hover>
-                <div className="group flex h-24 items-center justify-center rounded-xl border border-outline bg-cad px-4 text-center transition-all hover:border-brand hover:bg-white hover:shadow-[0_20px_40px_-24px_rgba(26,79,149,0.4)]">
-                  <span className="font-display text-lg font-bold text-steel transition-colors group-hover:text-primary">
-                    {name}
-                  </span>
+          <Stagger className="grid grid-cols-1 gap-gutter md:grid-cols-2" stagger={0.12}>
+            {customerLogos.map((src, i) => (
+              <Item key={src} hover>
+                <div className="overflow-hidden rounded-xl border border-outline bg-white p-6 shadow-sm transition-all hover:border-brand hover:shadow-md sm:p-8">
+                  <Image
+                    src={src}
+                    alt={`Shah Industrial Corporation customers ${i + 1}`}
+                    width={768}
+                    height={i === 0 ? 385 : 457}
+                    className="h-auto w-full object-contain"
+                  />
                 </div>
               </Item>
             ))}
           </Stagger>
           <Reveal className="mt-8 text-center text-sm text-muted" as="p">
-            …and many more plants across India.
+            …and many more mining, steel, cement and power plants across India.
           </Reveal>
         </div>
       </section>
