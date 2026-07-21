@@ -21,7 +21,6 @@ const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
 const fieldBase =
   "w-full rounded border border-outline bg-cad px-3.5 text-base text-ink transition-colors placeholder:text-steel/50 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25";
 const inputClass = `${fieldBase} h-12`;
-const textareaClass = `${fieldBase} min-h-[132px] resize-y py-3`;
 const labelClass =
   "font-ui text-label-caps font-semibold uppercase tracking-[0.1em] text-muted";
 
@@ -104,42 +103,45 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-gutter md:grid-cols-2">
+    <form onSubmit={handleSubmit} className="flex h-full flex-1 flex-col gap-gutter">
       {/* Honeypot (spam trap) */}
       <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
 
-      <div className="space-y-2">
-        <label className={labelClass}>Full Name</label>
-        <input name="name" type="text" required placeholder="John Doe" className={inputClass} />
+      <div className="grid grid-cols-1 gap-gutter md:grid-cols-2">
+        <div className="space-y-2">
+          <label className={labelClass}>Full Name</label>
+          <input name="name" type="text" required placeholder="John Doe" className={inputClass} />
+        </div>
+        <div className="space-y-2">
+          <label className={labelClass}>Email Address</label>
+          <input name="email" type="email" required placeholder="john@company.com" className={inputClass} />
+        </div>
+        <div className="space-y-2">
+          <label className={labelClass}>Phone</label>
+          <input name="phone" type="tel" placeholder="+91-" className={inputClass} />
+        </div>
+        <div className="space-y-2">
+          <label className={labelClass}>Interested In</label>
+          <Select
+            name="interest"
+            options={interestOptions}
+            defaultValue={services[1].title}
+            placeholder="Choose a solution…"
+          />
+        </div>
       </div>
-      <div className="space-y-2">
-        <label className={labelClass}>Email Address</label>
-        <input name="email" type="email" required placeholder="john@company.com" className={inputClass} />
-      </div>
-      <div className="space-y-2">
-        <label className={labelClass}>Phone</label>
-        <input name="phone" type="tel" placeholder="+91-" className={inputClass} />
-      </div>
-      <div className="space-y-2">
-        <label className={labelClass}>Interested In</label>
-        <Select
-          name="interest"
-          options={interestOptions}
-          defaultValue={services[1].title}
-          placeholder="Choose a solution…"
-        />
-      </div>
-      <div className="space-y-2 md:col-span-2">
+
+      <div className="flex flex-1 flex-col space-y-2">
         <label className={labelClass}>Message</label>
         <textarea
           name="message"
-          rows={4}
           required
           placeholder="Describe your industrial requirements..."
-          className={textareaClass}
+          className={`${fieldBase} min-h-[132px] flex-1 resize-y py-3`}
         />
       </div>
-      <div className="md:col-span-2">
+
+      <div>
         <button
           type="submit"
           disabled={status === "sending"}

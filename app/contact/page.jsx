@@ -60,8 +60,8 @@ export default function ContactPage() {
           </Reveal>
 
           {/* Form */}
-          <Reveal delay={0.1} className="lg:col-span-3">
-            <div className="rounded-xl border border-outline bg-white p-8 shadow-sm sm:p-10">
+          <Reveal delay={0.1} className="lg:col-span-3 lg:h-full">
+            <div className="flex h-full flex-col rounded-xl border border-outline bg-white p-8 shadow-sm sm:p-10">
               <h2 className="font-display text-headline-md font-bold text-primary">
                 Send us an enquiry
               </h2>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                 Fill in the form and we&apos;ll get back to you with the right
                 solution.
               </p>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-1 flex-col">
                 <ContactForm />
               </div>
             </div>

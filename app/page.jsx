@@ -350,8 +350,8 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="lg:col-span-3">
-            <div className="rounded-xl border border-outline bg-white p-8 shadow-sm">
+          <Reveal delay={0.1} className="lg:col-span-3 lg:h-full">
+            <div className="flex h-full flex-col rounded-xl border border-outline bg-white p-8 shadow-sm">
               <ContactForm />
             </div>
           </Reveal>

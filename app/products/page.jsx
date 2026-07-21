@@ -32,11 +32,19 @@ export default function ProductsPage() {
                 className="group grid grid-cols-1 gap-8 rounded-xl border border-outline bg-white p-8 transition-colors hover:border-brand hover:shadow-[0_20px_50px_-24px_rgba(26,79,149,0.35)] lg:grid-cols-12 lg:p-10"
               >
                 <div className="lg:col-span-5">
-                  <div className="flex items-center gap-4">
-                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-cad text-brand shadow-sm transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-brand group-hover:text-white">
-                      <MSym name={s.sym} className="text-3xl" />
+                  <div className="relative h-48 overflow-hidden rounded-lg border border-outline">
+                    <Image
+                      src={s.img}
+                      alt={s.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-obsidian/10 to-transparent" />
+                    <span className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/95 text-brand shadow-md">
+                      <MSym name={s.sym} className="text-xl" />
                     </span>
-                    <span className="font-mono text-2xl font-semibold text-outline transition-colors group-hover:text-accent">
+                    <span className="absolute bottom-3 right-4 font-mono text-3xl font-bold text-white/85">
                       0{i + 1}
                     </span>
                   </div>
