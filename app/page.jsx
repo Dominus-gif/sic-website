@@ -122,12 +122,24 @@ export default function HomePage() {
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <div className="absolute -bottom-6 -right-4 z-20 hidden rounded-lg border border-white/10 bg-brand p-stack-md text-white shadow-xl md:block">
-              <div className="font-display text-display-lg font-bold leading-none">3+</div>
-              <div className="mt-2 text-label-caps font-semibold uppercase tracking-[0.1em] opacity-80">
-                Decades of
+            <div className="absolute -bottom-8 -right-4 z-20 hidden overflow-hidden rounded-xl bg-gradient-to-br from-brand to-primary p-6 text-white shadow-2xl ring-1 ring-white/15 md:block">
+              <div className="absolute right-0 top-0 h-16 w-16 -translate-y-6 translate-x-6 rounded-full bg-accent/30 blur-2xl" />
+              <div className="relative flex items-baseline gap-1.5">
+                <span className="font-display text-6xl font-extrabold leading-none tracking-tight">
+                  30
+                </span>
+                <span className="font-display text-3xl font-extrabold leading-none text-accent">
+                  +
+                </span>
+                <span className="ml-0.5 font-display text-xl font-bold text-accent">
+                  Yrs
+                </span>
+              </div>
+              <div className="mt-2 h-0.5 w-10 rounded-full bg-accent" />
+              <div className="relative mt-2 text-label-caps font-semibold uppercase tracking-[0.14em] text-white/85">
+                Of engineering
                 <br />
-                Service Nationwide
+                service nationwide
               </div>
             </div>
           </Reveal>
@@ -185,78 +197,14 @@ export default function HomePage() {
           />
 
           <Stagger className="grid grid-cols-1 gap-gutter md:grid-cols-3" stagger={0.09}>
-            {/* Card 1 — large feature with photo */}
+            {/* Large feature */}
             <Item className="md:col-span-2">
-              <div className="group relative h-[400px] overflow-hidden rounded border border-outline">
-                <Image
-                  src="/photos/industrial-plant.jpg"
-                  alt="Industrial power transmission and material handling plant"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-stack-md text-white">
-                  <div className="mb-2 text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
-                    {bento[0].label}
-                  </div>
-                  <h3 className="mb-2 font-display text-headline-md font-semibold">
-                    {bento[0].title}
-                  </h3>
-                  <p className="max-w-md text-svariant opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {bento[0].summary}
-                  </p>
-                </div>
-              </div>
+              <SolutionCard s={bento[0]} big sizes="(max-width: 768px) 100vw, 66vw" />
             </Item>
-
-            {/* Card 2 — Mining, photo with brand wash */}
-            <Item>
-              <div className="group relative flex h-full min-h-[300px] flex-col justify-end overflow-hidden rounded border border-white/10">
-                <Image
-                  src={bento[1].img}
-                  alt={bento[1].title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand via-brand/90 to-brand/55" />
-                <div className="relative z-10 p-stack-md text-white">
-                  <h3 className="mb-stack-sm font-display text-headline-md font-semibold">
-                    {bento[1].title}
-                  </h3>
-                  <p className="mb-stack-sm text-sm opacity-90">{bento[1].summary}</p>
-                  <Link
-                    href="/products"
-                    className="inline-flex items-center gap-2 font-display font-bold text-accent transition-all hover:gap-3"
-                  >
-                    Explore <MSym name="chevron_right" />
-                  </Link>
-                </div>
-              </div>
-            </Item>
-
-            {/* Cards 3–5 — image header + content */}
-            {bento.slice(2).map((s) => (
-              <Item key={s.slug}>
-                <div className="group flex h-full flex-col overflow-hidden rounded border border-outline bg-white transition-all hover:border-brand hover:shadow-md">
-                  <div className="relative h-44 overflow-hidden">
-                    <Image
-                      src={s.img}
-                      alt={`${s.short} solutions`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/30 to-transparent" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="mb-2 font-display text-lg font-semibold text-primary">
-                      {s.short} Solutions
-                    </h3>
-                    <p className="text-sm leading-relaxed text-muted">{s.summary}</p>
-                  </div>
-                </div>
+            {/* Remaining verticals — same image + text style */}
+            {bento.slice(1).map((s, i) => (
+              <Item key={s.slug} className={i === 0 ? "md:h-full" : ""}>
+                <SolutionCard s={s} tall={i === 0} />
               </Item>
             ))}
           </Stagger>
@@ -402,8 +350,8 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="lg:col-span-3 lg:h-full">
-            <div className="flex h-full flex-col justify-center rounded-xl border border-outline bg-white p-8 shadow-sm">
+          <Reveal delay={0.1} className="lg:col-span-3">
+            <div className="rounded-xl border border-outline bg-white p-8 shadow-sm">
               <ContactForm />
             </div>
           </Reveal>
@@ -422,6 +370,36 @@ function ContactPoint({ sym, title, children }) {
       <div>
         <p className="font-bold text-primary">{title}</p>
         <div className="text-muted">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+// Unified solution card — full-bleed image with a dark gradient and text.
+function SolutionCard({ s, big = false, tall = false, sizes = "(max-width: 768px) 100vw, 33vw" }) {
+  const height = big
+    ? "h-[320px] md:h-[400px]"
+    : tall
+      ? "h-[300px] md:h-full md:min-h-[400px]"
+      : "h-[300px] md:h-[320px]";
+  return (
+    <div className={`group relative overflow-hidden rounded border border-outline ${height}`}>
+      <Image
+        src={s.img}
+        alt={s.title}
+        fill
+        sizes={sizes}
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-obsidian/10" />
+      <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+        <div className="mb-1.5 text-label-caps font-semibold uppercase tracking-[0.1em] text-accent">
+          {s.label}
+        </div>
+        <h3 className={`font-display font-semibold ${big ? "text-2xl" : "text-lg"}`}>
+          {s.title}
+        </h3>
+        <p className="mt-1.5 text-sm leading-relaxed text-white/85">{s.summary}</p>
       </div>
     </div>
   );

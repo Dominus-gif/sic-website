@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import MSym from "@/components/MSym";
+import Select from "@/components/Select";
 import { company, services } from "@/lib/site";
+
+const interestOptions = [...services.map((s) => s.title), "General enquiry"];
 
 /**
  * Enquiries are sent through Web3Forms (https://web3forms.com) — a free service
@@ -119,14 +122,12 @@ export default function ContactForm() {
       </div>
       <div className="space-y-2">
         <label className={labelClass}>Interested In</label>
-        <select name="interest" defaultValue={services[1].title} className={inputClass}>
-          {services.map((s) => (
-            <option key={s.slug} value={s.title}>
-              {s.title}
-            </option>
-          ))}
-          <option value="General enquiry">General enquiry</option>
-        </select>
+        <Select
+          name="interest"
+          options={interestOptions}
+          defaultValue={services[1].title}
+          placeholder="Choose a solution…"
+        />
       </div>
       <div className="space-y-2 md:col-span-2">
         <label className={labelClass}>Message</label>
