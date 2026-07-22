@@ -40,10 +40,7 @@ export default function ProductsPage() {
                       sizes="(max-width: 1024px) 100vw, 40vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-obsidian/10 to-transparent" />
-                    <span className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/95 text-brand shadow-md">
-                      <MSym name={s.sym} className="text-xl" />
-                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-obsidian/55 via-obsidian/10 to-transparent" />
                     <span className="absolute bottom-3 right-4 font-mono text-3xl font-bold text-white/85">
                       0{i + 1}
                     </span>
@@ -57,20 +54,23 @@ export default function ProductsPage() {
                   <p className="mt-3 leading-relaxed text-muted">{s.summary}</p>
                 </div>
 
-                <div className="lg:col-span-7 lg:border-l lg:border-outline lg:pl-10">
-                  <h3 className="text-label-caps font-semibold uppercase tracking-[0.1em] text-primary">
+                <div className="lg:col-span-7 lg:self-center lg:border-l lg:border-outline lg:pl-10">
+                  <h3 className="flex items-center gap-2 text-label-caps font-semibold uppercase tracking-[0.14em] text-accent">
+                    <span className="h-px w-6 bg-accent" />
                     What we deliver
                   </h3>
-                  <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <ul className="mt-6 grid grid-cols-1 gap-x-8 gap-y-1 sm:grid-cols-2">
                     {s.points.map((p) => (
                       <li
                         key={p.text}
-                        className="flex items-center gap-3 rounded-lg border border-outline/60 bg-cad px-3 py-2.5 transition-colors hover:border-brand/40"
+                        className="group/item flex items-center gap-3.5 border-b border-outline/50 py-3.5 last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0"
                       >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-brand/10 text-brand">
-                          <MSym name={p.sym} className="text-xl" />
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand transition-all duration-300 group-hover/item:scale-110 group-hover/item:bg-brand group-hover/item:text-white">
+                          <MSym name={p.sym} className="text-lg" />
                         </span>
-                        <span className="text-sm text-ink">{p.text}</span>
+                        <span className="text-sm font-medium text-ink transition-colors group-hover/item:text-primary">
+                          {p.text}
+                        </span>
                       </li>
                     ))}
                   </ul>
